@@ -1,0 +1,4 @@
+{
+  "row1": ["Next.js", "React", "TypeScript", "Node.js", "Python", "FastAPI", "PostgreSQL", "MongoDB", "Redis", "Kafka", "GraphQL", "Prisma", "Tailwind CSS"],
+  "row2": ["OpenAI", "Anthropic", "LangChain", "LangGraph", "Pinecone", "pgvector", "Elasticsearch", "AWS", "GCP", "Azure", "Docker", "Kubernetes", "Terraform", "LiveKit", "Twilio"]
+}

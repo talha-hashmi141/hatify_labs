@@ -1,0 +1,50 @@
+[
+  {
+    "title": "National-scale ERP for a government department",
+    "sector": "Government",
+    "summary": "A modular ERP covering HR, finance, procurement and citizen-facing workflows for a public-sector department — strict role hierarchies, immutable audit trails and secure on-premise deployment where the data never leaves the building.",
+    "tags": ["ERP", "RBAC", "Audit Trails", "On-premise"],
+    "stack": ["Next.js", "Node.js", "PostgreSQL", "Redis", "Kubernetes"],
+    "outcomes": [
+      { "value": "40+", "label": "modules shipped" },
+      { "value": "10k+", "label": "daily active users" },
+      { "value": "99.95%", "label": "uptime" }
+    ]
+  },
+  {
+    "title": "WhatsApp & email automation engine",
+    "sector": "Enterprise",
+    "summary": "An omnichannel automation platform driving contextual WhatsApp and email journeys — template governance, rate-aware throttling, delivery analytics and human-takeover built in from the first release.",
+    "tags": ["WhatsApp Cloud API", "Email Journeys", "Analytics"],
+    "stack": ["WhatsApp Cloud API", "SendGrid", "n8n", "Redis", "ClickHouse"],
+    "outcomes": [
+      { "value": "1M+", "label": "messages per month" },
+      { "value": "63%", "label": "faster first response" },
+      { "value": "24/7", "label": "automated coverage" }
+    ]
+  },
+  {
+    "title": "HIPAA-grade multi-tenant data platform",
+    "sector": "Healthcare",
+    "summary": "A database-per-tenant architecture for a healthcare SaaS — field-level encryption, PHI access controls, consent tracking and full audit trails, with automated tenant provisioning and tested disaster recovery.",
+    "tags": ["DB-per-tenant", "Encryption", "HIPAA", "Multi-tenancy"],
+    "stack": ["PostgreSQL", "Prisma", "AWS KMS", "Terraform", "Vault"],
+    "outcomes": [
+      { "value": "120+", "label": "isolated tenant databases" },
+      { "value": "0", "label": "security incidents" },
+      { "value": "100%", "label": "audit pass rate" }
+    ]
+  },
+  {
+    "title": "Agentic RAG knowledge assistant",
+    "sector": "AI Platform",
+    "summary": "A hybrid-search RAG assistant over 200k+ internal documents — LangGraph agents with tool use, citation-grounded answers and eval-gated releases, so accuracy is measured instead of assumed.",
+    "tags": ["RAG", "Hybrid Search", "LangGraph", "Evals"],
+    "stack": ["LangGraph", "pgvector", "Elasticsearch", "FastAPI", "Anthropic Claude"],
+    "outcomes": [
+      { "value": "92%", "label": "eval answer accuracy" },
+      { "value": "200k+", "label": "documents indexed" },
+      { "value": "<2s", "label": "median response time" }
+    ]
+  }
+]

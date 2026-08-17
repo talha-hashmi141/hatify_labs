@@ -1,0 +1,9 @@
+# robots.txt — Hatify Labs
+# Update the Sitemap URL when the production domain changes
+# (also update "url" in src/data/site.json).
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://hatifylabs.com/sitemap.xml

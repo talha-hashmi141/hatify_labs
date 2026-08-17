@@ -1,0 +1,57 @@
+{
+  "name": "Hatify Labs",
+  "legalName": "Hatify Labs",
+  "tagline": "We engineer intelligent software for serious business.",
+  "description": "Hatify Labs is a full-stack software house building generative AI systems, RAG pipelines, voice agents, multi-tenant SaaS platforms, secure HIPAA-conscious data architectures and cloud infrastructure — trusted across government and enterprise.",
+  "url": "https://hatifylabs.com",
+  "email": "hello@hatifylabs.com",
+  "phone": "+1 (555) 013-4200",
+  "address": "Suite 404, Innovation District — City, Country",
+  "addressNote": "Placeholder — real contact details coming soon",
+  "founded": 2019,
+  "availability": "Available for new projects",
+  "keywords": [
+    "software house",
+    "AI development company",
+    "generative AI development",
+    "RAG pipeline development",
+    "LangChain developers",
+    "LangGraph agents",
+    "hybrid search retrieval",
+    "AI chatbot development",
+    "voice AI agents",
+    "multi-tenant SaaS development",
+    "multi-tenant CRM",
+    "HIPAA compliant software development",
+    "database sharding",
+    "cloud engineering services",
+    "government ERP systems",
+    "WhatsApp automation",
+    "email automation",
+    "Next.js development agency",
+    "UI UX design studio",
+    "data security engineering"
+  ],
+  "socials": [
+    { "label": "GitHub", "href": "https://github.com/hatifylabs" },
+    { "label": "LinkedIn", "href": "https://www.linkedin.com/company/hatifylabs" },
+    { "label": "X (Twitter)", "href": "https://x.com/hatifylabs" },
+    { "label": "Instagram", "href": "https://instagram.com/hatifylabs" }
+  ],
+  "nav": [
+    { "label": "Services", "href": "/services" },
+    { "label": "Work", "href": "/work" },
+    { "label": "About", "href": "/about" },
+    { "label": "Contact", "href": "/contact" }
+  ],
+  "trustBadges": [
+    { "icon": "landmark", "label": "Government-scale ERP systems" },
+    { "icon": "message", "label": "1M+ automated messages / month" },
+    { "icon": "shield", "label": "HIPAA-conscious architectures" }
+  ],
+  "nextSteps": [
+    { "step": "01", "title": "Intro call", "desc": "Thirty minutes on your problem, your users and your deadline — no sales choreography." },
+    { "step": "02", "title": "Scoped plan", "desc": "An honest estimate within days — trade-offs, risks and timeline in writing." },
+    { "step": "03", "title": "Kickoff", "desc": "A senior team starts shipping in week one, with a demo at the end of it." }
+  ]
+}
