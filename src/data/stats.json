@@ -1,6 +1,0 @@
-[
-  { "value": 60, "suffix": "+", "label": "Projects delivered" },
-  { "value": 7, "suffix": "+", "label": "Years of engineering" },
-  { "value": 15, "suffix": "+", "label": "AI systems in production" },
-  { "value": 99.9, "suffix": "%", "label": "Uptime across deployments" }
-]

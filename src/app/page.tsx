@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
-import CaseStudies from "@/components/CaseStudies";
-import CTA from "@/components/CTA";
-import Hero from "@/components/Hero";
-import Process from "@/components/Process";
-import ServicesSection from "@/components/ServicesSection";
-import Stats from "@/components/Stats";
-import TechMarquee from "@/components/TechMarquee";
+import AboutIntro from "@/components/sections/AboutIntro";
+import Capabilities from "@/components/sections/Capabilities";
+import ClientShowcase from "@/components/sections/ClientShowcase";
+import ContactCTA from "@/components/sections/ContactCTA";
+import FeaturedWork from "@/components/sections/FeaturedWork";
+import Hero from "@/components/sections/Hero";
+import ProcessTimeline from "@/components/sections/ProcessTimeline";
+import ServicesOverview from "@/components/sections/ServicesOverview";
+import StackBand from "@/components/sections/StackBand";
+import Testimonials from "@/components/sections/Testimonials";
 import { site } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -17,12 +20,15 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <ServicesSection />
-      <TechMarquee />
-      <CaseStudies preview />
-      <Stats />
-      <Process />
-      <CTA />
+      <ClientShowcase />
+      <AboutIntro />
+      <ServicesOverview />
+      <StackBand />
+      <FeaturedWork />
+      <Capabilities />
+      <ProcessTimeline />
+      <Testimonials />
+      <ContactCTA />
     </>
   );
 }

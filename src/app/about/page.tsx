@@ -1,155 +1,177 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import CTA from "@/components/CTA";
-import PageHeader from "@/components/PageHeader";
-import Reveal from "@/components/Reveal";
-import Stats from "@/components/Stats";
-import { site } from "@/lib/data";
+import Link from "next/link";
+import { ArrowUpRight, Boxes, CalendarRange, Compass, HeartHandshake, Layers, ShieldCheck, Users } from "lucide-react";
+import ContactCTA from "@/components/sections/ContactCTA";
+import { LinkedInIcon } from "@/components/ui/Icon";
+import { MetricGrid } from "@/components/ui/Metric";
+import PageHero from "@/components/ui/PageHero";
+import Reveal from "@/components/ui/Reveal";
+import SectionHeader from "@/components/ui/SectionHeader";
+import BrandConstellation from "@/components/visuals/BrandConstellation";
+import { achievements, linkedin, site } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Hatify Labs is a dedicated team of engineers and designers building complex software: government ERP systems, production AI, secure multi-tenant platforms and automation at scale.",
+    "Hatify Labs is a full-stack software and AI engineering studio in Lahore, Pakistan. A multidisciplinary team building government ERPs, multi-tenant SaaS, production AI and regulated data platforms.",
   alternates: { canonical: "/about" },
 };
 
-const values = [
-  {
-    title: "Security is a default",
-    desc: "Encryption, least privilege and audit trails are in the first sprint, not the last invoice. We build like an auditor is watching — because eventually, one is.",
-  },
-  {
-    title: "Complexity is the job",
-    desc: "Multi-tenancy, regulated data, realtime AI — we chose the hard problems on purpose. Simple sites are lovely; complex systems are why we exist.",
-  },
-  {
-    title: "Own the outcome",
-    desc: "We measure success in systems running in production, not tickets closed. If it breaks at 2 a.m., it is our problem too — and we architect so it rarely does.",
-  },
-  {
-    title: "Ship, then sharpen",
-    desc: "Weekly demos, short iterations, honest trade-offs. Momentum beats perfection — and perfection arrives faster when something real is running.",
-  },
+const VALUES = [
+  { icon: HeartHandshake, title: "Integrity first", desc: "Realistic estimates and trade-offs in writing. If an idea will hurt the product, we say so early." },
+  { icon: Compass, title: "Purpose over output", desc: "Success is measured by what changes for your users. Tickets closed and hours billed are side notes." },
+  { icon: ShieldCheck, title: "Security by default", desc: "Encryption, least-privilege access and audit trails are part of the first sprint, not the last invoice." },
+  { icon: Layers, title: "Own the whole system", desc: "Design, engineering, data and infrastructure decisions are made together, so the system stays coherent." },
 ];
 
-const roles = [
-  "Full-stack Engineers",
-  "AI / LLM Engineers",
-  "Cloud & DevOps Architects",
-  "Data Engineers",
-  "Security Engineers",
-  "Product Designers",
-  "QA & Automation",
+const DISCIPLINES = [
+  "Full-stack engineering",
+  "AI & LLM engineering",
+  "Machine learning",
+  "Mobile development",
+  "Cloud & DevOps",
+  "Data engineering & databases",
+  "Security engineering",
+  "Product & UI/UX design",
+  "QA & test automation",
+  "Project & delivery management",
+];
+
+const MODELS = [
+  { icon: Boxes, title: "Fixed-scope build", desc: "For well-defined projects. A scoped discovery produces a written plan, timeline and price before the build starts." },
+  { icon: CalendarRange, title: "Monthly retainer", desc: "Ongoing product work with a steady team, a shared roadmap and regular demos." },
+  { icon: Users, title: "Dedicated team", desc: "A cross-functional team embedded in your long-running program, scaled to the work." },
 ];
 
 export default function AboutPage() {
   return (
     <>
-      <PageHeader
-        kicker="About"
-        title="A lab, not a factory"
-        accent="factory"
-        desc={site.tagline}
-        image="/images/about-collaboration.jpg"
+      <PageHero
+        crumbs={[{ label: "Home", href: "/" }, { label: "About" }]}
+        eyebrow="About Hatify Labs"
+        title={
+          <>
+            Innovation with <span className="accent">integrity</span>. Transformation with purpose.
+          </>
+        }
+        desc={site.description}
+        aside={<BrandConstellation />}
       />
 
-      {/* Manifesto */}
-      <section data-theme="light" className="section relative overflow-hidden !py-20 md:!py-28">
-        <div aria-hidden className="pointer-events-none absolute inset-0 select-none">
-          <Image
-            src="/images/about-collaboration.jpg"
-            alt=""
-            fill
-            className="object-cover opacity-[0.08] mix-blend-multiply"
-            style={{ maskImage: "linear-gradient(to right, transparent 40%, black 90%)" }}
-            sizes="100vw"
-          />
+      {/* Story */}
+      <section className="section-y" aria-labelledby="story-title">
+        <div className="container-x grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-5">
+            <p className="eyebrow">Who we are</p>
+            <h2 id="story-title" className="display mt-4 text-[clamp(1.9rem,3.8vw,3rem)]">
+              A multidisciplinary studio built for <span className="accent">complex</span> work.
+            </h2>
+          </div>
+          <div className="space-y-5 text-[17px] leading-relaxed text-body lg:col-span-7">
+            <p>
+              Hatify Labs brings engineers, designers and specialists with different expertise into a single team. That
+              mix is deliberate. Projects involving regulated data, public-sector workflows, multi-tenant platforms or
+              production AI rarely fail inside one discipline. They fail at the hand-off between two.
+            </p>
+            <p>
+              So we keep those people in one room. Architecture, security, data and user experience are decided
+              together and written down, then delivered in short iterations you can see and test.
+            </p>
+            <p>
+              Based in {site.location}, we work with organisations that need software to be dependable, secure and
+              pleasant to use for every one of their users.
+            </p>
+          </div>
         </div>
-        <div className="container-x relative grid gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-3">
-            <Reveal>
-              <span className="label-mono">/ The short version</span>
-            </Reveal>
-          </div>
-          <div className="lg:col-span-9">
-            <Reveal>
-              <p className="font-display text-[clamp(1.7rem,3.2vw,2.8rem)] font-bold leading-[1.25] text-zinc-500">
-                Most agencies optimize for volume — so the hard projects get quietly avoided.{" "}
-                <span className="text-white light:text-zinc-950">
-                  We built a team that runs toward exactly those projects
-                </span>{" "}
-                — regulated data, government scale, and <span className="text-accent">AI that has to be right.</span>
-              </p>
-            </Reveal>
-            <Reveal
-              delay={0.1}
-              className="mt-10 grid gap-6 text-base leading-relaxed text-zinc-400 light:text-zinc-600 md:grid-cols-2"
-            >
-              <p>
-                Since {site.founded}, we have shipped ERP platforms inside government departments where audit
-                trails are non-negotiable, automation engines pushing over a million WhatsApp and email
-                messages a month, and HIPAA-conscious data architectures with database-per-tenant isolation.
-              </p>
-              <p>
-                We stay deliberately senior and deliberately small. Every project gets engineers who have done
-                this before — no hand-offs to a bench, no juniors learning on your budget, and LLM systems
-                whose accuracy is measured by eval suites instead of vibes.
-              </p>
-            </Reveal>
-          </div>
+        <div className="container-x mt-14">
+          <MetricGrid metrics={achievements} />
         </div>
       </section>
 
-      {/* Principles */}
-      <section className="pb-20">
+      {/* Values */}
+      <section className="section-y bg-white" aria-labelledby="values-title">
         <div className="container-x">
-          <Reveal>
-            <div className="flex items-baseline justify-between gap-4">
-              <span className="font-mono text-base font-semibold tracking-[0.2em] md:text-lg text-lime-300">[A]</span>
-              <span className="label-mono">Principles — How we think</span>
-            </div>
-          </Reveal>
-          <div className="mt-8 border-t border-white/10">
-            {values.map((v, i) => (
-              <Reveal key={v.title} delay={Math.min(i * 0.04, 0.2)}>
-                <div className="grid gap-2 border-b border-white/10 py-8 md:grid-cols-[110px_320px_1fr] md:gap-10">
-                  <span className="font-mono text-base font-semibold text-lime-300">PR/{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="display text-2xl md:text-3xl">{v.title}</h3>
-                  <p className="max-w-2xl text-sm leading-relaxed text-zinc-400 sm:text-base">{v.desc}</p>
-                </div>
+          <SectionHeader
+            eyebrow="Our values"
+            title={
+              <span id="values-title">
+                The principles behind <span className="accent">every</span> build.
+              </span>
+            }
+          />
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {VALUES.map((v, i) => (
+              <Reveal key={v.title} delay={i * 0.05} className="card h-full p-7">
+                <span className="flex size-11 items-center justify-center rounded-xl bg-gradient-to-br from-royal to-electric text-white shadow-[var(--shadow-glow)]">
+                  <v.icon className="size-5" strokeWidth={1.75} aria-hidden />
+                </span>
+                <h3 className="mt-6 text-lg font-bold">{v.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-body">{v.desc}</p>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Team */}
-      <section className="pb-24">
-        <div className="container-x">
-          <Reveal>
-            <div className="rounded-2xl border border-white/10 p-8 md:p-12">
-              <span className="label-mono">/ The team</span>
-              <h2 className="display mt-4 text-2xl sm:text-3xl md:text-4xl">
-                One dedicated team, <span className="text-accent">every discipline</span>
-              </h2>
-              <p className="mt-4 max-w-2xl text-sm leading-relaxed text-zinc-400 sm:text-base">
-                Product, design, engineering, AI, infrastructure and security sit in one room — decisions take
-                a conversation, not a committee. This is the whole reason our complex builds stay coherent.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-2">
-                {roles.map((r) => (
-                  <span key={r} className="tag-mono">
-                    {r}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </Reveal>
+      {/* Team disciplines — roles only, no personal information */}
+      <section className="surface-navy-deep section-y relative overflow-hidden" aria-labelledby="team-title">
+        <div aria-hidden className="bg-dots-dark fade-mask-b absolute inset-0 opacity-60" />
+        <div className="container-x relative grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div>
+            <p className="eyebrow !text-cyan">The team</p>
+            <h2 id="team-title" className="display mt-4 text-[clamp(1.9rem,3.8vw,3rem)] !text-white">
+              Different expertise, <span className="accent-on-dark">one</span> standard.
+            </h2>
+            <p className="mt-5 max-w-lg text-base leading-relaxed text-white/70 sm:text-lg">
+              A team of {site.teamSize} people with distinct expertise. Each engagement is staffed with the mix of
+              specialists it actually needs.
+            </p>
+            {linkedin ? (
+              <a href={linkedin} target="_blank" rel="noopener noreferrer" className="btn btn-lg btn-light mt-8">
+                <LinkedInIcon className="size-4" />
+                Follow Hatify Labs on LinkedIn
+                <span className="sr-only">(opens in a new tab)</span>
+              </a>
+            ) : null}
+          </div>
+          <ul className="grid gap-2.5 sm:grid-cols-2">
+            {DISCIPLINES.map((d) => (
+              <li key={d} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3.5 text-sm font-medium text-white/85">
+                <span className="size-1.5 shrink-0 rounded-full bg-cyan" aria-hidden />
+                {d}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      <Stats />
-      <CTA />
+      {/* Engagement models */}
+      <section className="section-y" aria-labelledby="models-title">
+        <div className="container-x">
+          <SectionHeader
+            eyebrow="How we engage"
+            title={<span id="models-title">Engagement models that fit the work</span>}
+            desc="Every engagement starts with a scoped discovery so estimates are grounded in reality."
+            action={
+              <Link href="/contact" className="btn btn-secondary">
+                Discuss your project
+                <ArrowUpRight className="size-4" aria-hidden />
+              </Link>
+            }
+          />
+          <div className="mt-12 grid gap-4 md:grid-cols-3">
+            {MODELS.map((m, i) => (
+              <Reveal key={m.title} delay={i * 0.05} className="card h-full p-7">
+                <m.icon className="size-6 text-royal" strokeWidth={1.6} aria-hidden />
+                <h3 className="mt-5 text-lg font-bold">{m.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-body">{m.desc}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <ContactCTA />
     </>
   );
 }

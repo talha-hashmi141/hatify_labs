@@ -1,32 +1,8 @@
 [
-  {
-    "step": "01",
-    "title": "Discover",
-    "desc": "We dig into your domain, constraints and edge cases before a line of code is written. You get a scoped plan with honest trade-offs — not a sales pitch."
-  },
-  {
-    "step": "02",
-    "title": "Architect",
-    "desc": "System design, data models, tenancy and security decisions are documented and challenged early — while changing them is still cheap."
-  },
-  {
-    "step": "03",
-    "title": "Design",
-    "desc": "Flows and interfaces designed as systems: tokens, components and motion that scale with the product instead of fighting it."
-  },
-  {
-    "step": "04",
-    "title": "Build",
-    "desc": "Short, shippable iterations with a demo every week. Code review, tests and CI/CD are defaults here — not premium add-ons."
-  },
-  {
-    "step": "05",
-    "title": "Harden",
-    "desc": "Load testing, security review, compliance checks and observability — before launch, not after the first incident."
-  },
-  {
-    "step": "06",
-    "title": "Scale",
-    "desc": "We stay on for monitoring, iteration and roadmap execution as real usage grows — the launch is the start, not the finish."
-  }
+  { "step": "01", "title": "Discover", "desc": "We learn your domain, users, constraints and edge cases before writing code, and agree on what success looks like.", "deliverables": ["Discovery notes", "Scope & risks", "Success criteria"] },
+  { "step": "02", "title": "Architect", "desc": "System design, data models, tenancy and security decisions are documented and challenged while changing them is still cheap.", "deliverables": ["Architecture doc", "Data model", "Security plan"] },
+  { "step": "03", "title": "Design", "desc": "Flows and interfaces designed as one system, with tokens, components and states that map directly to code.", "deliverables": ["User flows", "UI design", "Design system"] },
+  { "step": "04", "title": "Build", "desc": "Short iterations with regular demos. Code review, automated tests and CI/CD are part of the standard build.", "deliverables": ["Working increments", "Test suites", "CI/CD"] },
+  { "step": "05", "title": "Harden", "desc": "Load testing, security review and monitoring are done before launch, while fixing things is still cheap.", "deliverables": ["Security review", "Performance tests", "Runbooks"] },
+  { "step": "06", "title": "Launch & scale", "desc": "We support the rollout, monitor real usage and keep improving the product as it grows.", "deliverables": ["Launch plan", "Monitoring", "Roadmap"] }
 ]

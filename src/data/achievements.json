@@ -1,0 +1,6 @@
+[
+  { "id": "team", "label": "Engineers, designers & specialists", "value": "11–50", "verified": true, "source": "LinkedIn company profile" },
+  { "id": "hq", "label": "Headquarters", "value": "Lahore, PK", "verified": true, "source": "LinkedIn company profile" },
+  { "id": "projects", "label": "Projects delivered", "value": null, "verified": false, "source": null },
+  { "id": "years", "label": "Years in operation", "value": null, "verified": false, "source": null }
+]

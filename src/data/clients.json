@@ -1,0 +1,8 @@
+[
+  { "name": null, "sector": "Government", "logo": null, "url": null, "approved": false },
+  { "name": null, "sector": "Healthcare", "logo": null, "url": null, "approved": false },
+  { "name": null, "sector": "Enterprise", "logo": null, "url": null, "approved": false },
+  { "name": null, "sector": "AI Platform", "logo": null, "url": null, "approved": false },
+  { "name": null, "sector": "SaaS", "logo": null, "url": null, "approved": false },
+  { "name": null, "sector": "Fintech", "logo": null, "url": null, "approved": false }
+]

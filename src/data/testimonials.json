@@ -1,0 +1,6 @@
+[
+  { "id": "t-erp", "quote": null, "author": null, "role": null, "company": null, "projectSlug": "government-erp-platform", "approved": false },
+  { "id": "t-automation", "quote": null, "author": null, "role": null, "company": null, "projectSlug": "omnichannel-automation-engine", "approved": false },
+  { "id": "t-health", "quote": null, "author": null, "role": null, "company": null, "projectSlug": "multi-tenant-healthcare-data-platform", "approved": false },
+  { "id": "t-rag", "quote": null, "author": null, "role": null, "company": null, "projectSlug": "agentic-rag-knowledge-assistant", "approved": false }
+]
