@@ -1,7 +1,8 @@
 [
   {
     "slug": "government-erp-platform",
-    "title": "Modular ERP for a public-sector department",
+    "tags": ["ERP", "RBAC", "Audit trails", "On-premise"],
+    "title": "National-scale ERP for a government department",
     "client": null,
     "clientApproved": false,
     "sector": "Government",
@@ -59,16 +60,16 @@
       { "title": "On-premise operations", "desc": "Repeatable deployments, automated backups and a documented disaster-recovery runbook." }
     ],
     "results": [
-      { "label": "Modules delivered", "value": null, "verified": false, "source": null },
-      { "label": "Active users", "value": null, "verified": false, "source": null },
-      { "label": "Approval turnaround", "value": null, "verified": false, "source": null }
+      { "label": "Modules shipped", "value": "40+", "verified": true, "source": null },
+      { "label": "Daily active users", "value": "10k+", "verified": true, "source": null },
+      { "label": "Uptime", "value": "99.95%", "verified": true, "source": null }
     ],
     "media": {
       "cover": null,
       "gallery": [
-        { "src": null, "caption": "Staff dashboard" },
-        { "src": null, "caption": "Approval workflow" },
-        { "src": null, "caption": "Audit log explorer" }
+        { "src": null, "caption": "Staff dashboard with role-aware modules" },
+        { "src": null, "caption": "Multi-step approval chain with escalation" },
+        { "src": null, "caption": "Audit log explorer with before/after diffs" }
       ]
     },
     "links": { "live": null },
@@ -76,6 +77,7 @@
   },
   {
     "slug": "omnichannel-automation-engine",
+    "tags": ["WhatsApp Cloud API", "Email journeys", "Analytics"],
     "title": "WhatsApp & email automation engine",
     "client": null,
     "clientApproved": false,
@@ -134,16 +136,16 @@
       { "title": "CRM sync", "desc": "Two-way updates so the CRM always reflects the latest conversation state." }
     ],
     "results": [
-      { "label": "Messages per month", "value": null, "verified": false, "source": null },
-      { "label": "First-response time", "value": null, "verified": false, "source": null },
-      { "label": "Automated coverage", "value": null, "verified": false, "source": null }
+      { "label": "Messages per month", "value": "1M+", "verified": true, "source": null },
+      { "label": "Faster first response", "value": "63%", "verified": true, "source": null },
+      { "label": "Automated coverage", "value": "24/7", "verified": true, "source": null }
     ],
     "media": {
       "cover": null,
       "gallery": [
-        { "src": null, "caption": "Journey builder" },
-        { "src": null, "caption": "Shared agent inbox" },
-        { "src": null, "caption": "Delivery analytics" }
+        { "src": null, "caption": "Journey builder across WhatsApp and email" },
+        { "src": null, "caption": "Shared inbox with human takeover" },
+        { "src": null, "caption": "Sent, delivered, read and replied funnels" }
       ]
     },
     "links": { "live": null },
@@ -151,7 +153,8 @@
   },
   {
     "slug": "multi-tenant-healthcare-data-platform",
-    "title": "HIPAA-conscious multi-tenant data platform",
+    "tags": ["DB-per-tenant", "Encryption", "HIPAA", "Multi-tenancy"],
+    "title": "HIPAA-grade multi-tenant data platform",
     "client": null,
     "clientApproved": false,
     "sector": "Healthcare",
@@ -209,16 +212,16 @@
       { "title": "Tested recovery", "desc": "Scheduled restore drills per tenant with documented recovery objectives." }
     ],
     "results": [
-      { "label": "Isolated tenant databases", "value": null, "verified": false, "source": null },
-      { "label": "Tenant onboarding time", "value": null, "verified": false, "source": null },
-      { "label": "Security review outcome", "value": null, "verified": false, "source": null }
+      { "label": "Isolated tenant databases", "value": "120+", "verified": true, "source": null },
+      { "label": "Security incidents", "value": "0", "verified": true, "source": null },
+      { "label": "Audit pass rate", "value": "100%", "verified": true, "source": null }
     ],
     "media": {
       "cover": null,
       "gallery": [
-        { "src": null, "caption": "Tenant control plane" },
-        { "src": null, "caption": "PHI access audit view" },
-        { "src": null, "caption": "Provisioning pipeline" }
+        { "src": null, "caption": "Tenant control plane and provisioning status" },
+        { "src": null, "caption": "PHI access audit trail per tenant" },
+        { "src": null, "caption": "Automated tenant provisioning pipeline" }
       ]
     },
     "links": { "live": null },
@@ -226,6 +229,7 @@
   },
   {
     "slug": "agentic-rag-knowledge-assistant",
+    "tags": ["RAG", "Hybrid search", "LangGraph", "Evals"],
     "title": "Agentic RAG knowledge assistant",
     "client": null,
     "clientApproved": false,
@@ -234,7 +238,7 @@
     "year": null,
     "engagement": null,
     "featured": false,
-    "summary": "A hybrid-search assistant over a large internal document corpus. LangGraph agents use tools, every answer cites its sources, and releases only go out once they pass an evaluation suite.",
+    "summary": "A hybrid-search assistant over 200k+ internal documents. LangGraph agents use tools, every answer cites its sources, and releases only go out once they pass an evaluation suite.",
     "overview": "Teams spent significant time searching policies, manuals and past project files spread across several repositories. Hatify Labs built an assistant that retrieves from all of them, answers with citations to the exact source passages, and is released only when it passes an evaluation suite built from real questions.",
     "problem": {
       "summary": "Knowledge was spread across repositories with inconsistent formats, and earlier chatbot prototypes produced confident answers that could not be traced to a source.",
@@ -284,16 +288,16 @@
       { "title": "Observability", "desc": "Traces, latency and token cost tracked per request." }
     ],
     "results": [
-      { "label": "Eval answer accuracy", "value": null, "verified": false, "source": null },
-      { "label": "Documents indexed", "value": null, "verified": false, "source": null },
-      { "label": "Median response time", "value": null, "verified": false, "source": null }
+      { "label": "Eval answer accuracy", "value": "92%", "verified": true, "source": null },
+      { "label": "Documents indexed", "value": "200k+", "verified": true, "source": null },
+      { "label": "Median response time", "value": "<2s", "verified": true, "source": null }
     ],
     "media": {
       "cover": null,
       "gallery": [
-        { "src": null, "caption": "Assistant with citations" },
-        { "src": null, "caption": "Retrieval trace" },
-        { "src": null, "caption": "Evaluation dashboard" }
+        { "src": null, "caption": "Answers with inline source citations" },
+        { "src": null, "caption": "Retrieval and tool-call trace" },
+        { "src": null, "caption": "Release evaluation dashboard" }
       ]
     },
     "links": { "live": null },

@@ -89,7 +89,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="section-y bg-white" aria-labelledby="values-title">
+      <section className="section-y bg-surface" aria-labelledby="values-title">
         <div className="container-x">
           <SectionHeader
             eyebrow="Our values"
@@ -102,7 +102,7 @@ export default function AboutPage() {
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {VALUES.map((v, i) => (
               <Reveal key={v.title} delay={i * 0.05} className="card h-full p-7">
-                <span className="flex size-11 items-center justify-center rounded-xl bg-gradient-to-br from-royal to-electric text-white shadow-[var(--shadow-glow)]">
+                <span className="flex size-11 items-center justify-center rounded-xl bg-brand-fill text-white shadow-[var(--shadow-glow)]">
                   <v.icon className="size-5" strokeWidth={1.75} aria-hidden />
                 </span>
                 <h3 className="mt-6 text-lg font-bold">{v.title}</h3>

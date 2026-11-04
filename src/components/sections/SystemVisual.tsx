@@ -64,7 +64,7 @@ export default function SystemVisual() {
         </div>
 
         {/* Footer strip */}
-        <div className="relative mt-6 flex flex-wrap items-center gap-2 border-t border-[#d6e5ff] pt-5">
+        <div className="relative mt-6 flex flex-wrap items-center gap-2 border-t border-aurora-line pt-5">
           {["Observability", "CI/CD", "IaC", "Audit trails"].map((t) => (
             <span key={t} className="chip">
               {t}
@@ -74,19 +74,19 @@ export default function SystemVisual() {
       </div>
 
       {/* Floating chips */}
-      <div className="absolute -top-5 left-6 hidden animate-float items-center gap-2 rounded-xl border border-line bg-white px-3 py-2 text-xs font-semibold text-ink shadow-[var(--shadow-lift)] sm:flex">
+      <div className="absolute -top-5 left-6 hidden animate-float items-center gap-2 rounded-xl border border-line bg-surface px-3 py-2 text-xs font-semibold text-ink shadow-[var(--shadow-lift)] sm:flex">
         <span className="flex size-6 items-center justify-center rounded-lg bg-tint text-royal">
           <Sparkles className="size-3.5" />
         </span>
         RAG pipeline
       </div>
-      <div className="absolute -right-4 bottom-11 hidden animate-float items-center gap-2 rounded-xl border border-line bg-white px-3 py-2 text-xs font-semibold text-ink shadow-[var(--shadow-lift)] [animation-delay:-3s] sm:flex">
+      <div className="absolute -right-4 bottom-11 hidden animate-float items-center gap-2 rounded-xl border border-line bg-surface px-3 py-2 text-xs font-semibold text-ink shadow-[var(--shadow-lift)] [animation-delay:-3s] sm:flex">
         <span className="flex size-6 items-center justify-center rounded-lg bg-tint text-royal">
           <Lock className="size-3.5" />
         </span>
         Tenant isolation
       </div>
-      <div className="absolute -bottom-5 right-[30%] hidden animate-float items-center gap-2 rounded-xl border border-line bg-white px-3 py-2 text-xs font-semibold text-ink shadow-[var(--shadow-lift)] [animation-delay:-5s] sm:flex">
+      <div className="absolute -bottom-5 right-[30%] hidden animate-float items-center gap-2 rounded-xl border border-line bg-surface px-3 py-2 text-xs font-semibold text-ink shadow-[var(--shadow-lift)] [animation-delay:-5s] sm:flex">
         <span className="flex size-6 items-center justify-center rounded-lg bg-tint text-royal">
           <GitBranch className="size-3.5" />
         </span>

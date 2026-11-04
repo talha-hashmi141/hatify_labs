@@ -29,7 +29,7 @@ export default function FAQ({ items }: { items: FaqItem[] }) {
                 <span className="text-base font-semibold text-ink sm:text-lg">{item.q}</span>
                 <span
                   className={`flex size-9 shrink-0 items-center justify-center rounded-full border transition-[transform,background-color,border-color,color] duration-300 ${
-                    isOpen ? "rotate-45 border-royal bg-royal text-white" : "border-line-strong text-muted"
+                    isOpen ? "rotate-45 border-fill bg-fill text-white" : "border-line-strong text-muted"
                   }`}
                 >
                   <Plus className="size-4" aria-hidden />

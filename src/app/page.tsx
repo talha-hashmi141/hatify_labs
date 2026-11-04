@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import AboutIntro from "@/components/sections/AboutIntro";
-import Capabilities from "@/components/sections/Capabilities";
 import ClientShowcase from "@/components/sections/ClientShowcase";
 import ContactCTA from "@/components/sections/ContactCTA";
 import FeaturedWork from "@/components/sections/FeaturedWork";
@@ -25,7 +24,6 @@ export default function HomePage() {
       <ServicesOverview />
       <StackBand />
       <FeaturedWork />
-      <Capabilities />
       <ProcessTimeline />
       <Testimonials />
       <ContactCTA />

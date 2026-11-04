@@ -13,7 +13,7 @@ export default function ProcessTimeline() {
               How a project <span className="accent">moves</span> with us.
             </span>
           }
-          desc="Six stages, and each one ends with something you can review. You always know where the work stands and what comes next."
+          desc="Six stages, each ending in something you can review, so you always know where the work stands."
         />
 
         <ol className="relative mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -23,10 +23,7 @@ export default function ProcessTimeline() {
                   aria-hidden
                   className="absolute inset-x-0 top-0 h-1 origin-left scale-x-[0.18] bg-gradient-to-r from-royal via-electric to-cyan transition-transform duration-500 group-hover:scale-x-100"
                 />
-                <div className="flex items-baseline justify-between">
-                  <span className="font-serif text-5xl italic leading-none text-royal/90 transition-transform duration-500 group-hover:-translate-y-1 group-hover:text-electric">{s.step}</span>
-                  <span className="mono-label">Stage {i + 1} of {processSteps.length}</span>
-                </div>
+                <span className="font-serif text-5xl italic leading-none text-royal/90 transition-transform duration-500 group-hover:-translate-y-1 group-hover:text-electric">{s.step}</span>
                 <h3 className="mt-6 text-xl font-bold">{s.title}</h3>
                 <p className="mt-2.5 text-sm leading-relaxed text-body">{s.desc}</p>
                 <ul className="mt-auto flex flex-wrap gap-1.5 pt-6" aria-label={`${s.title} deliverables`}>

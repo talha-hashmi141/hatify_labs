@@ -13,13 +13,13 @@ export default function FeaturedWork() {
     <section className="section-y" aria-labelledby="work-title">
       <div className="container-x">
         <SectionHeader
-          eyebrow="Featured work"
+          eyebrow="Selected work"
           title={
             <span id="work-title">
-              Selected work, told in <span className="accent">detail</span>.
+              Real systems, <span className="accent">measured</span> results.
             </span>
           }
-          desc="Each case study opens up the engineering: what was broken, what we built, how the pieces fit together and what changed afterwards."
+          desc="Government, healthcare, enterprise and AI builds, each with the architecture behind it and the numbers it delivered."
           action={
             <Link href="/work" className="btn btn-secondary">
               View all work

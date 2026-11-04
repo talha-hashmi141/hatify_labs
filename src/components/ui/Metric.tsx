@@ -27,7 +27,7 @@ export function MetricCard({ metric, tone = "light" }: { metric: Metric; tone?: 
       : "placeholder-slot";
 
   return (
-    <div className={`flex h-full flex-col justify-between gap-6 p-6 ${shell}`} data-placeholder={verified ? undefined : true}>
+    <div className={`flex h-full flex-col justify-between gap-5 p-5 sm:gap-6 sm:p-6 ${shell}`} data-placeholder={verified ? undefined : true}>
       {verified ? (
         <p className={`text-[clamp(1.9rem,3.2vw,2.5rem)] font-bold leading-none tracking-tight whitespace-nowrap ${dark ? "text-white" : "text-ink"}`}>
           {metric.value}
@@ -36,7 +36,7 @@ export function MetricCard({ metric, tone = "light" }: { metric: Metric; tone?: 
         <div className="flex flex-col items-start gap-3">
           <span
             aria-hidden
-            className={`text-[clamp(1.9rem,3.2vw,2.5rem)] font-bold leading-none tracking-tight ${dark ? "text-white/25" : "text-navy-900/20"}`}
+            className={`text-[clamp(1.9rem,3.2vw,2.5rem)] font-bold leading-none tracking-tight ${dark ? "text-white/25" : "text-ink/20"}`}
           >
             —
           </span>
@@ -73,7 +73,7 @@ export function MetricGrid({
   const n = Math.min(list.length, maxCols);
   const cols = n >= 4 ? "lg:grid-cols-4" : n === 3 ? "lg:grid-cols-3" : "";
   return (
-    <div className={`grid gap-4 sm:grid-cols-2 ${cols} ${className ?? ""}`}>
+    <div className={`grid grid-cols-2 gap-3 sm:gap-4 max-lg:[&>*:last-child:nth-child(odd)]:col-span-2 ${cols} ${className ?? ""}`}>
       {list.map((m) => (
         <MetricCard key={m.label} metric={m} tone={tone} />
       ))}

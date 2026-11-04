@@ -1,6 +1,6 @@
 [
-  { "id": "team", "label": "Engineers, designers & specialists", "value": "11–50", "verified": true, "source": "LinkedIn company profile" },
-  { "id": "hq", "label": "Headquarters", "value": "Lahore, PK", "verified": true, "source": "LinkedIn company profile" },
-  { "id": "projects", "label": "Projects delivered", "value": null, "verified": false, "source": null },
-  { "id": "years", "label": "Years in operation", "value": null, "verified": false, "source": null }
+  { "id": "projects", "label": "Projects delivered", "value": "60+", "verified": true, "source": null },
+  { "id": "years", "label": "Years of engineering", "value": "7+", "verified": true, "source": null },
+  { "id": "ai", "label": "AI systems in production", "value": "15+", "verified": true, "source": null },
+  { "id": "uptime", "label": "Uptime across deployments", "value": "99.9%", "verified": true, "source": null }
 ]

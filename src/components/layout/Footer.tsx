@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { contactEmail, linkedin, services, site } from "@/lib/data";
 import Logo from "@/components/brand/Logo";
 import { LinkedInIcon } from "@/components/ui/Icon";
@@ -79,24 +79,11 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="container-x relative">
-        <div className="flex flex-col gap-6 rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
-          <div>
-            <p className="text-lg font-semibold text-white">Got something worth building?</p>
-            <p className="mt-1 text-sm text-white/60">Every enquiry is read by one of our engineers.</p>
-          </div>
-          <Link href="/contact" className="btn btn-lg btn-light shrink-0">
-            Start a conversation
-            <ArrowUpRight className="size-4" aria-hidden />
-          </Link>
-        </div>
-      </div>
-
-      <div className="container-x relative mt-12 flex flex-col gap-3 border-t border-white/10 py-6 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
+      <div className="container-x relative flex flex-col gap-3 border-t border-white/10 py-6 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
         <p>
           © {year} {site.legalName}. All rights reserved.
         </p>
-        <p>Innovation with Integrity · Transformation with Purpose</p>
+        <p>Software & AI engineering since {site.founded}</p>
       </div>
     </footer>
   );

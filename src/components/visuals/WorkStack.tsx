@@ -21,7 +21,7 @@ export default function WorkStack() {
         >
           <div className="bg-dots absolute inset-0 opacity-50" />
           <div className="relative flex items-center justify-between">
-            <span className="rounded-full bg-gradient-to-r from-royal to-electric px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">{p.sector}</span>
+            <span className="rounded-full bg-brand-fill px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">{p.sector}</span>
             <span className="font-mono text-[10px] text-royal/70">0{i + 1}</span>
           </div>
           <div className="relative">

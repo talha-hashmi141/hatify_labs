@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Boxes, Cloud, Code, Database, Sparkles, Workflow } from "lucide-react";
-import { site } from "@/lib/data";
+import { achievements, site } from "@/lib/data";
 import Reveal from "@/components/ui/Reveal";
 import Tilt from "@/components/ui/Tilt";
 import HeroHeadline from "./HeroHeadline";
@@ -27,12 +27,14 @@ export default function Hero() {
       </div>
 
       <div className="container-x relative">
-        <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-start lg:gap-12">
+        <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
           <div>
             <Reveal>
-              <p className="inline-flex items-center gap-2 rounded-full border border-line bg-white/80 py-1.5 pl-1.5 pr-4 text-xs font-medium text-body shadow-[var(--shadow-soft)] backdrop-blur">
-                <span className="rounded-full bg-navy-900 px-2.5 py-1 text-[11px] font-semibold text-white">Hatify Labs</span>
-                Software & AI engineering studio, {site.location.split(",")[0]}
+              <p className="inline-flex max-w-full items-center gap-2 rounded-full border border-line bg-surface/80 py-1.5 pl-1.5 pr-4 text-xs font-medium text-body shadow-[var(--shadow-soft)] backdrop-blur">
+                <span className="shrink-0 whitespace-nowrap rounded-full bg-deep px-2.5 py-1 text-[11px] font-semibold text-white">Est. {site.founded}</span>
+                <span className="truncate">
+                  Software & AI engineering studio<span className="hidden sm:inline"> · {site.location.split(",")[0]}</span>
+                </span>
               </p>
             </Reveal>
 
@@ -55,26 +57,34 @@ export default function Hero() {
               </Link>
             </Reveal>
 
-            <Reveal delay={0.65}>
-              <p className="mt-10 flex items-center gap-3 text-sm text-muted">
-                <span className="h-px w-10 bg-gradient-to-r from-royal to-cyan" aria-hidden />
-                <span>
-                  Innovation with <span className="font-semibold text-ink">Integrity</span>. Transformation with{" "}
-                  <span className="font-semibold text-ink">Purpose</span>.
-                </span>
-              </p>
-            </Reveal>
           </div>
 
-          <Reveal delay={0.35} y={28} className="lg:pt-10">
+          <Reveal delay={0.35} y={28}>
             <Tilt>
               <SystemVisual />
             </Tilt>
           </Reveal>
         </div>
 
-        {/* Capability capsule */}
+        {/* Company stats: full-width, centred, every value on one baseline */}
         <Reveal delay={0.1} className="mt-16 md:mt-20">
+          <dl className="card grid grid-cols-2 overflow-hidden md:grid-cols-4">
+            {achievements.map((a, i) => (
+              <div
+                key={a.id}
+                className={`flex flex-col items-center gap-2 px-4 py-6 text-center sm:py-8 ${i % 2 ? "border-l border-line" : ""} ${
+                  i >= 2 ? "border-t border-line md:border-t-0" : ""
+                } ${i === 2 ? "md:border-l" : ""}`}
+              >
+                <dt className="order-last max-w-[26ch] text-xs leading-snug text-muted sm:text-sm">{a.label}</dt>
+                <dd className="text-[clamp(1.9rem,3.4vw,2.75rem)] font-bold leading-none tracking-tight text-ink tabular-nums">{a.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </Reveal>
+
+        {/* Capability capsule */}
+        <Reveal delay={0.1} className="mt-5">
           <nav aria-label="Core capabilities" className="surface-royal relative overflow-hidden rounded-2xl p-2 shadow-[var(--shadow-glow)] ring-1 ring-white/20">
             <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
               {CAPSULE.map(({ label, href, icon: Ico }, i) => (

@@ -22,7 +22,7 @@ export default function WorkGrid({ projects, cards }: { projects: Pick<Project, 
               onClick={() => setActive(s)}
               aria-pressed={on}
               className={`inline-flex min-h-10 items-center gap-2 rounded-full border px-4 text-sm font-medium transition-colors ${
-                on ? "border-navy-900 bg-navy-900 text-white" : "border-line-strong bg-white text-body hover:border-royal hover:text-royal"
+                on ? "border-deep bg-deep text-white" : "border-line-strong bg-surface text-body hover:border-royal hover:text-royal"
               }`}
             >
               {s}

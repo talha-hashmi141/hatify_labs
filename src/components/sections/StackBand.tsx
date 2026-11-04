@@ -1,5 +1,5 @@
 /*
-  "Stack — spoken fluently" band.
+  "The stack we ship with" band.
   Two counter-scrolling rows: large outlined display type, then a quieter
   mono row. Pauses on hover; static under reduced motion (global CSS rule).
   Edit the lists below to change what scrolls.
@@ -72,10 +72,10 @@ export default function StackBand() {
     <section aria-labelledby="stack-title" className="surface-navy-deep relative overflow-hidden border-y border-white/10">
       <div aria-hidden className="bg-dots-dark pointer-events-none absolute inset-0 opacity-40" />
 
-      <div className="container-x relative flex items-center justify-between gap-6 py-5">
-        <span className="font-mono text-sm font-semibold tracking-[0.2em] text-cyan">[ 02 ]</span>
+      <div className="container-x relative flex items-center gap-3 py-5">
+        <span className="h-px w-6 bg-gradient-to-r from-electric to-cyan" aria-hidden />
         <h2 id="stack-title" className="font-mono text-xs font-medium uppercase tracking-[0.24em] text-white/80 sm:text-sm">
-          Stack — spoken fluently
+          The stack we ship with
         </h2>
       </div>
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight, ArrowUpRight, CheckCircle2, CircleAlert, ExternalLink } from "lucide-react";
+import { ArrowRight, CheckCircle2, CircleAlert, ExternalLink } from "lucide-react";
 import ContactCTA from "@/components/sections/ContactCTA";
 import { TestimonialCard } from "@/components/sections/Testimonials";
 import { MetricGrid } from "@/components/ui/Metric";
@@ -270,7 +270,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
             {showMetrics ? (
               <>
                 <p className="mt-4 max-w-2xl text-[15px] text-body">
-                  We publish outcome figures only after they have been verified with the client.
+                  Measured in production after launch.
                 </p>
                 <MetricGrid metrics={project.results} className="mt-8" maxCols={3} />
               </>
@@ -283,7 +283,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
                   {gallery.map((g) => (
                       <li key={g.caption}>
                         <figure>
-                          <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-line bg-white">
+                          <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-line bg-surface">
                             <Image src={g.src} alt={g.caption} fill sizes="(min-width: 640px) 30vw, 100vw" className="object-cover" />
                           </div>
                           <figcaption className="mt-2 text-sm text-muted">{g.caption}</figcaption>
@@ -306,24 +306,17 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
           {next.slug !== project.slug ? (
             <Link
               href={`/work/${next.slug}`}
-              className="card card-hover group flex flex-col gap-6 p-7 sm:flex-row sm:items-center sm:justify-between sm:p-9"
+              className="card card-hover group flex items-center justify-between gap-5 p-6 sm:gap-6 sm:p-9"
             >
               <div>
                 <p className="mono-label">Next case study · {next.sector}</p>
                 <p className="mt-2 text-xl font-bold text-ink sm:text-2xl">{next.title}</p>
               </div>
-              <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-navy-900 text-white transition-colors group-hover:bg-royal">
+              <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-deep text-white transition-colors group-hover:bg-fill">
                 <ArrowRight className="size-5" aria-hidden />
               </span>
             </Link>
           ) : null}
-
-          <p className="text-sm text-muted">
-            Have a similar challenge?{" "}
-            <Link href="/contact" className="inline-flex items-center gap-1 font-semibold text-royal hover:underline">
-              Talk to the team <ArrowUpRight className="size-3.5" aria-hidden />
-            </Link>
-          </p>
         </article>
       </div>
 

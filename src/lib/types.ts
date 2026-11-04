@@ -72,6 +72,8 @@ export interface Project {
   /** True when the client has approved being named publicly. */
   clientApproved: boolean;
   sector: string;
+  /** Short topic tags shown on project cards (e.g. "RBAC", "HIPAA"). */
+  tags: string[];
   services: string[];
   year: Pending;
   engagement: Pending;
@@ -159,6 +161,8 @@ export interface SiteConfig {
   url: string;
   location: string;
   teamSize: string;
+  /** Year the studio was founded, e.g. "2019". */
+  founded: string;
   content: {
     /**
      * true  → unverified/pending content renders as visible placeholder slots

@@ -28,7 +28,7 @@ function Ring({ items, radius, duration, reverse }: { items: typeof services; ra
             <div style={{ animation: `spin ${duration}s linear infinite ${counter}` }}>
               <span
                 title={s.title}
-                className="-ml-5 -mt-5 flex size-10 items-center justify-center rounded-xl border border-line bg-white text-royal shadow-[var(--shadow-soft)]"
+                className="-ml-5 -mt-5 flex size-10 items-center justify-center rounded-xl border border-line bg-surface text-royal shadow-[var(--shadow-soft)]"
               >
                 <Icon name={s.icon} className="size-[18px]" />
               </span>
@@ -48,7 +48,7 @@ export default function ServiceOrbit() {
       <div className="absolute inset-10 rounded-full bg-gradient-to-br from-electric/20 via-cyan/10 to-transparent blur-2xl" />
       <Ring items={outer} radius={165} duration={60} />
       <Ring items={inner} radius={100} duration={45} reverse />
-      <div className="absolute left-1/2 top-1/2 -ml-11 -mt-11 flex size-22 items-center justify-center rounded-3xl border border-line bg-white shadow-[var(--shadow-glow)]">
+      <div className="absolute left-1/2 top-1/2 -ml-11 -mt-11 flex size-22 items-center justify-center rounded-3xl border border-line bg-surface shadow-[var(--shadow-glow)]">
         <LogoMark className="size-12" />
       </div>
     </div>

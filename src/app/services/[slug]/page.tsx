@@ -72,7 +72,7 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
         aside={
           <div className="surface-sky relative overflow-hidden rounded-[var(--radius-card)] p-7 shadow-[var(--shadow-soft)]">
             <div aria-hidden className="bg-dots absolute inset-0 opacity-50" />
-            <span className="relative flex size-12 items-center justify-center rounded-xl bg-gradient-to-br from-royal to-electric text-white shadow-[var(--shadow-glow)]">
+            <span className="relative flex size-12 items-center justify-center rounded-xl bg-brand-fill text-white shadow-[var(--shadow-glow)]">
               <Icon name={service.icon} className="size-6" />
             </span>
             <p className="relative mt-6 font-mono text-[11px] uppercase tracking-[0.14em] text-muted">Typical stack</p>
@@ -118,7 +118,7 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
       </section>
 
       {work.length ? (
-        <section className="section-y bg-white" aria-labelledby="related-work-title">
+        <section className="section-y bg-surface" aria-labelledby="related-work-title">
           <div className="container-x">
             <SectionHeader
               eyebrow="Related case studies"
@@ -130,9 +130,9 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
                 </Link>
               }
             />
-            <div className="mt-12 grid gap-5 md:grid-cols-2">
+            <div className={`mt-12 grid gap-5 ${work.length > 1 ? "md:grid-cols-2" : ""}`}>
               {work.slice(0, 2).map((p) => (
-                <ProjectCard key={p.slug} project={p} />
+                <ProjectCard key={p.slug} project={p} layout={work.length > 1 ? "stack" : "wide"} />
               ))}
             </div>
           </div>

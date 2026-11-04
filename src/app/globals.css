@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Dark mode is class-driven (`.dark` on <html>), toggled by ThemeToggle. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ══════════════════════════════════════════════════════════════════════════
    Hatify Labs — design tokens
    Brand: deep navy #071B49 · royal #0866E8 · electric #087BFF · cyan #00C9E8
@@ -21,6 +24,12 @@
   --color-navy-700: #10357f;
   --color-royal: #0866e8;
   --color-royal-600: #0657c7;
+
+  /* Fixed deep brand fills for anything carrying white text. Unlike royal,
+     these are NOT lightened in dark mode, so white text keeps >= 4.5:1. */
+  --color-fill-deep: #062b7d;
+  --color-fill: #0757cf;
+  --color-fill-light: #0866e8;
   --color-electric: #087bff;
   --color-cyan: #00c9e8;
   --color-mist: #f8faff;
@@ -34,6 +43,11 @@
   --color-line-strong: #cbd5e9;
   --color-tint: #eef4ff;
   --color-tint-strong: #dfeaff;
+
+  /* Theme-aware surfaces (re-mapped under .dark) */
+  --color-surface: #ffffff;      /* cards, inputs, raised sections */
+  --color-deep: #071b49;         /* solid "ink" fills: primary button, active pills */
+  --color-aurora-line: #d6e5ff;  /* hairlines inside aurora panels */
 
   /* Radii & shadows */
   --radius-card: 1.25rem;
@@ -77,6 +91,88 @@
   to { transform: translateX(-50%); }
 }
 
+/* ── Theme variables ──────────────────────────────────────────────────── */
+
+:root {
+  color-scheme: light;
+  --veil: rgb(238 245 255 / 0.97);
+  --dot: rgb(7 27 73 / 0.09);
+  --header-shadow: 0 8px 30px -20px rgb(7 27 73 / 0.35);
+  --logo-deep: #071b49;
+  --aurora-bg:
+    radial-gradient(55% 70% at 100% 0%, rgb(0 201 232 / 0.20), transparent 65%),
+    radial-gradient(55% 75% at 0% 100%, rgb(8 123 255 / 0.16), transparent 65%),
+    linear-gradient(155deg, #ffffff 0%, #f1f7ff 55%, #e6f0ff 100%);
+  --aurora-border: #d6e5ff;
+  --tile-border: #d9e7ff;
+  --tile-bg: rgb(255 255 255 / 0.85);
+  --sky-bg: linear-gradient(160deg, #eef5ff 0%, #dcebff 100%);
+  --sky-border: #c9dcff;
+  --slot-bg: rgb(238 244 255 / 0.6);
+  --royal-bg:
+    radial-gradient(60% 90% at 100% 0%, rgb(0 201 232 / 0.22), transparent 60%),
+    radial-gradient(55% 80% at 0% 100%, rgb(4 20 70 / 0.35), transparent 65%),
+    linear-gradient(125deg, #062b7d 0%, #0757cf 55%, #0866e8 100%);
+  --royal-border: transparent;
+}
+
+.dark {
+  color-scheme: dark;
+
+  /* Neutrals: inverted, still navy-tinted */
+  --color-mist: #050c22;
+  --color-surface: #0b1734;
+  --color-ink: #eef3ff;
+  --color-body: #b6c2dc;
+  --color-muted: #8f9cbd;
+  --color-faint: #6a789e;
+  --color-line: #1a2a50;
+  --color-line-strong: #2a3e6c;
+  --color-tint: #0f2250;
+  --color-tint-strong: #163070;
+  --color-deep: #0866e8;
+  --color-aurora-line: #1f3566;
+
+  /* Brighter royal so accents/links keep contrast on dark grounds */
+  --color-royal: #4b93ff;
+  --color-royal-600: #2f7df5;
+
+  --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.3), 0 10px 30px -14px rgb(0 0 0 / 0.55);
+  --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.3), 0 28px 56px -28px rgb(0 0 0 / 0.75);
+  --shadow-glow: 0 18px 50px -18px rgb(8 123 255 / 0.5);
+
+  --veil: rgb(11 23 52 / 0.97);
+  --dot: rgb(160 190 255 / 0.08);
+  --header-shadow: 0 8px 30px -20px rgb(0 0 0 / 0.8);
+  --logo-deep: #1d4fb8;
+  --aurora-bg:
+    radial-gradient(55% 70% at 100% 0%, rgb(0 201 232 / 0.14), transparent 65%),
+    radial-gradient(55% 75% at 0% 100%, rgb(8 123 255 / 0.18), transparent 65%),
+    linear-gradient(155deg, #0d1c40 0%, #0a1736 55%, #081430 100%);
+  --aurora-border: #1f3566;
+  --tile-border: #22396b;
+  --tile-bg: rgb(14 30 66 / 0.85);
+  --sky-bg: linear-gradient(160deg, #0d1d44 0%, #0a1838 100%);
+  --sky-border: #1f3566;
+  --slot-bg: rgb(15 34 80 / 0.4);
+  /* Statement boxes: a deep sapphire instead of full-brightness royal, so they
+     glow against the dark page rather than glare. */
+  --royal-bg:
+    radial-gradient(60% 90% at 100% 0%, rgb(0 201 232 / 0.20), transparent 60%),
+    radial-gradient(55% 80% at 0% 100%, rgb(8 123 255 / 0.22), transparent 65%),
+    linear-gradient(125deg, #0a2763 0%, #0c3482 60%, #0d4192 100%);
+  --royal-border: rgb(75 147 255 / 0.22);
+}
+
+/* Suppress colour transitions for the single frame the theme flips, so the
+   whole page switches at once instead of fading element by element. */
+.theme-switching,
+.theme-switching *:not([data-theme-anim]),
+.theme-switching *::before,
+.theme-switching *::after {
+  transition: none !important;
+}
+
 /* ── Base ─────────────────────────────────────────────────────────────── */
 
 @layer base {
@@ -98,7 +194,7 @@
   }
   ::selection {
     background: rgb(8 123 255 / 0.18);
-    color: var(--color-navy-900);
+    color: var(--color-ink);
   }
   :focus-visible {
     outline: 2px solid var(--color-electric);
@@ -160,7 +256,7 @@
 }
 
 @utility card {
-  @apply rounded-[var(--radius-card)] border border-line bg-white shadow-[var(--shadow-soft)];
+  @apply rounded-[var(--radius-card)] border border-line bg-surface shadow-[var(--shadow-soft)];
 }
 
 @utility card-hover {
@@ -168,7 +264,7 @@
 }
 
 @utility chip {
-  @apply inline-flex items-center rounded-full border border-line bg-white px-3 py-1 text-xs font-medium text-body;
+  @apply inline-flex items-center rounded-full border border-line bg-surface px-3 py-1 text-xs font-medium text-body;
 }
 
 @utility chip-dark {
@@ -187,17 +283,22 @@
   @apply min-h-12 px-6 py-3 text-[15px];
 }
 @utility btn-primary {
-  @apply bg-navy-900 text-white shadow-[0_10px_30px_-12px_rgb(7_27_73/0.55)] hover:bg-royal hover:shadow-[var(--shadow-glow)];
+  @apply bg-deep text-white shadow-[0_10px_30px_-12px_rgb(7_27_73/0.55)] hover:bg-fill hover:shadow-[var(--shadow-glow)];
 }
 @utility btn-brand {
   @apply text-white shadow-[var(--shadow-glow)];
-  background: linear-gradient(110deg, var(--color-royal), var(--color-electric));
+  background: linear-gradient(110deg, var(--color-fill), var(--color-fill-light));
   &:hover {
-    background: linear-gradient(110deg, var(--color-royal-600), var(--color-royal));
+    background: linear-gradient(110deg, var(--color-fill-deep), var(--color-fill));
   }
 }
+
+/* Deep brand gradient behind white text (icon tiles, pills, hover fills). */
+@utility bg-brand-fill {
+  background-image: linear-gradient(125deg, var(--color-fill-deep) 0%, var(--color-fill) 55%, var(--color-fill-light) 100%);
+}
 @utility btn-secondary {
-  @apply border border-line-strong bg-white text-ink hover:border-royal hover:text-royal;
+  @apply border border-line-strong bg-surface text-ink hover:border-royal hover:text-royal;
 }
 @utility btn-ghost-dark {
   @apply border border-white/20 text-white hover:border-white/50 hover:bg-white/5;
@@ -219,7 +320,7 @@
 
 /* Fine dotted grid used behind hero / headers */
 @utility bg-dots {
-  background-image: radial-gradient(rgb(7 27 73 / 0.09) 1px, transparent 1px);
+  background-image: radial-gradient(var(--dot) 1px, transparent 1px);
   background-size: 22px 22px;
 }
 @utility bg-dots-dark {
@@ -231,34 +332,29 @@
    project covers, header cards). Pearl white with soft cyan/electric glows,
    navy text, royal accents. Pair inner tiles with `tile-aurora`. */
 @utility surface-aurora {
-  background:
-    radial-gradient(55% 70% at 100% 0%, rgb(0 201 232 / 0.20), transparent 65%),
-    radial-gradient(55% 75% at 0% 100%, rgb(8 123 255 / 0.16), transparent 65%),
-    linear-gradient(155deg, #ffffff 0%, #f1f7ff 55%, #e6f0ff 100%);
-  border: 1px solid #d6e5ff;
+  background: var(--aurora-bg);
+  border: 1px solid var(--aurora-border);
   color: var(--color-body);
 }
 @utility tile-aurora {
-  @apply border border-[#d9e7ff] bg-white/85 text-ink shadow-[0_1px_2px_rgb(7_27_73/0.04)] backdrop-blur-sm;
+  @apply border border-[var(--tile-border)] bg-[var(--tile-bg)] text-ink shadow-[0_1px_2px_rgb(7_27_73/0.04)] backdrop-blur-sm;
 }
 @utility tile-aurora-hot {
-  @apply border border-transparent bg-gradient-to-br from-royal to-electric text-white shadow-[0_8px_22px_-8px_rgb(8_102_232/0.6)];
+  @apply border border-transparent bg-brand-fill text-white shadow-[0_8px_22px_-8px_rgb(8_102_232/0.6)];
 }
 
 /* Royal gradient: statement boxes (capability bar, CTA panel, featured service).
-   Sweeps from royal to a cyan-tinted electric for a luminous finish. */
+   Deep sapphire into royal, so white text stays high-contrast. */
 @utility surface-royal {
-  background:
-    radial-gradient(60% 90% at 100% 0%, rgb(0 201 232 / 0.45), transparent 60%),
-    radial-gradient(50% 80% at 0% 100%, rgb(255 255 255 / 0.10), transparent 65%),
-    linear-gradient(125deg, #0866e8 0%, #087bff 60%, #12a2f5 100%);
+  background: var(--royal-bg);
+  border: 1px solid var(--royal-border);
   color: rgb(255 255 255 / 0.96);
 }
 
 /* Soft sky tint: text-heavy content boxes. Navy text, royal accents. */
 @utility surface-sky {
-  background: linear-gradient(160deg, #eef5ff 0%, #dcebff 100%);
-  border: 1px solid #c9dcff;
+  background: var(--sky-bg);
+  border: 1px solid var(--sky-border);
   color: var(--color-body);
 }
 
@@ -285,7 +381,7 @@
   @apply rounded-xl border border-dashed border-royal/35 text-muted;
   background:
     repeating-linear-gradient(135deg, rgb(8 102 232 / 0.035) 0 10px, transparent 10px 20px),
-    rgb(238 244 255 / 0.6);
+    var(--slot-bg);
 }
 @utility placeholder-slot-dark {
   @apply rounded-xl border border-dashed border-white/20 text-white/55;

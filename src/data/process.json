@@ -3,6 +3,6 @@
   { "step": "02", "title": "Architect", "desc": "System design, data models, tenancy and security decisions are documented and challenged while changing them is still cheap.", "deliverables": ["Architecture doc", "Data model", "Security plan"] },
   { "step": "03", "title": "Design", "desc": "Flows and interfaces designed as one system, with tokens, components and states that map directly to code.", "deliverables": ["User flows", "UI design", "Design system"] },
   { "step": "04", "title": "Build", "desc": "Short iterations with regular demos. Code review, automated tests and CI/CD are part of the standard build.", "deliverables": ["Working increments", "Test suites", "CI/CD"] },
-  { "step": "05", "title": "Harden", "desc": "Load testing, security review and monitoring are done before launch, while fixing things is still cheap.", "deliverables": ["Security review", "Performance tests", "Runbooks"] },
-  { "step": "06", "title": "Launch & scale", "desc": "We support the rollout, monitor real usage and keep improving the product as it grows.", "deliverables": ["Launch plan", "Monitoring", "Roadmap"] }
+  { "step": "05", "title": "Harden", "desc": "Load testing, security review, compliance checks and observability happen before launch, not after the first incident.", "deliverables": ["Security review", "Performance tests", "Runbooks"] },
+  { "step": "06", "title": "Launch & scale", "desc": "We stay on for monitoring, iteration and the roadmap as real usage grows. Launch is the start, not the finish.", "deliverables": ["Launch plan", "Monitoring", "Roadmap"] }
 ]

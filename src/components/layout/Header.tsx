@@ -8,6 +8,7 @@ import { ArrowRight, Menu, X } from "lucide-react";
 import { linkedin, site } from "@/lib/data";
 import Logo from "@/components/brand/Logo";
 import { LinkedInIcon } from "@/components/ui/Icon";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 
 export default function Header() {
   const pathname = usePathname();
@@ -50,7 +51,7 @@ export default function Header() {
     <>
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded-full focus:bg-navy-900 focus:px-4 focus:py-2 focus:text-sm focus:text-white"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded-full focus:bg-deep focus:px-4 focus:py-2 focus:text-sm focus:text-white"
       >
         Skip to content
       </a>
@@ -63,7 +64,7 @@ export default function Header() {
 
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,border-color] duration-300 ${
-          solid ? "border-b border-line/80 bg-white/85 shadow-[0_8px_30px_-20px_rgb(7_27_73/0.35)] backdrop-blur-xl" : "border-b border-transparent"
+          solid ? "border-b border-line/80 bg-surface/85 shadow-[var(--header-shadow)] backdrop-blur-xl" : "border-b border-transparent"
         }`}
       >
         <nav className="container-x flex h-[72px] items-center justify-between gap-6" aria-label="Main">
@@ -97,34 +98,35 @@ export default function Header() {
             })}
           </ul>
 
-          <div className="hidden items-center gap-3 md:flex">
+          <div className="flex items-center gap-1 md:gap-2">
             {linkedin ? (
               <a
                 href={linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Hatify Labs on LinkedIn (opens in a new tab)"
-                className="flex size-10 items-center justify-center rounded-full text-body transition-colors hover:bg-tint hover:text-royal"
+                className="hidden size-10 items-center justify-center rounded-full text-body transition-colors hover:bg-tint hover:text-royal md:flex"
               >
                 <LinkedInIcon className="size-[18px]" />
               </a>
             ) : null}
-            <Link href="/contact" className="btn btn-primary">
+            <ThemeToggle />
+            <Link href="/contact" className="btn btn-primary ml-1 hidden md:inline-flex">
               Start a project
               <ArrowRight className="size-4" aria-hidden />
             </Link>
-          </div>
 
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            className="flex size-11 items-center justify-center rounded-full text-ink transition-colors hover:bg-tint md:hidden"
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            aria-controls="mobile-menu"
-          >
-            {open ? <X className="size-5" /> : <Menu className="size-5" />}
-          </button>
+            <button
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              className="flex size-11 items-center justify-center rounded-full text-ink transition-colors hover:bg-tint md:hidden"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              aria-controls="mobile-menu"
+            >
+              {open ? <X className="size-5" /> : <Menu className="size-5" />}
+            </button>
+          </div>
         </nav>
       </header>
 
@@ -136,7 +138,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-x-0 top-[72px] bottom-0 z-40 overflow-y-auto bg-white px-4 pb-10 pt-4 sm:px-8 md:hidden"
+            className="fixed inset-x-0 top-[72px] bottom-0 z-40 overflow-y-auto bg-surface px-4 pb-10 pt-4 sm:px-8 md:hidden"
           >
             <ul className="divide-y divide-line border-y border-line">
               {[{ label: "Home", href: "/" }, ...site.nav].map((item) => (

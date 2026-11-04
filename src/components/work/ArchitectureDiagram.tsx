@@ -17,7 +17,7 @@ export default function ArchitectureDiagram({ architecture }: { architecture: Ar
         <ol>
           {layers.map((layer, i) => (
             <li key={layer.name}>
-              <div className="grid gap-3 rounded-2xl border border-[#dce9ff] bg-white/60 p-4 sm:grid-cols-[150px_1fr] sm:items-center sm:gap-5 sm:p-5">
+              <div className="grid gap-3 rounded-2xl border border-aurora-line bg-surface/60 p-4 sm:grid-cols-[150px_1fr] sm:items-center sm:gap-5 sm:p-5">
                 <p className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.14em] text-ink">
                   <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-tint-strong text-[11px] text-royal">{i + 1}</span>
                   {layer.name}
@@ -49,7 +49,7 @@ export default function ArchitectureDiagram({ architecture }: { architecture: Ar
           ))}
         </ol>
 
-        <figcaption className="mt-8 max-w-3xl border-t border-[#d6e5ff] pt-6 text-[15px] leading-relaxed text-body">
+        <figcaption className="mt-8 max-w-3xl border-t border-aurora-line pt-6 text-[15px] leading-relaxed text-body">
           {architecture.summary}
         </figcaption>
       </div>

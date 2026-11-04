@@ -117,7 +117,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="section-y bg-white" aria-labelledby="faq-title">
+      <section className="section-y bg-surface" aria-labelledby="faq-title">
         <div className="container-x grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <p className="eyebrow">FAQ</p>

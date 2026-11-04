@@ -14,7 +14,7 @@ export function LogoMark({ className, title }: { className?: string; title?: str
       <defs>
         <linearGradient id={`${id}l`} x1="0" y1="0" x2="0.2" y2="1">
           <stop offset="0" stopColor="#0A72F0" />
-          <stop offset="1" stopColor="#071B49" />
+          <stop offset="1" style={{ stopColor: "var(--logo-deep, #071B49)" }} />
         </linearGradient>
         <linearGradient id={`${id}r`} x1="0.8" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#00C9E8" />
@@ -42,7 +42,7 @@ export function Wordmark({ className, tone = "dark" }: { className?: string; ton
   return (
     <span
       className={`text-[15px] font-extrabold tracking-[0.16em] whitespace-nowrap ${
-        tone === "dark" ? "text-navy-900" : "text-white"
+        tone === "dark" ? "text-ink" : "text-white"
       } ${className ?? ""}`}
     >
       HATIFY <span className={tone === "dark" ? "text-royal" : "text-cyan"}>LABS</span>

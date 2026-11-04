@@ -20,7 +20,7 @@ export default function ContactCTA({
         <Reveal>
           <div className="surface-royal relative overflow-hidden rounded-[2rem] px-6 py-14 shadow-[var(--shadow-glow)] sm:px-12 md:py-20">
             <div aria-hidden className="bg-dots-dark absolute inset-0 opacity-60" />
-            <div aria-hidden className="absolute -right-24 -top-32 size-[420px] rounded-full bg-cyan/30 blur-[100px]" />
+            <div aria-hidden className="absolute -right-24 -top-32 size-[420px] rounded-full bg-cyan/15 blur-[100px]" />
             <div className="relative grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-center">
               <div>
                 <p className="eyebrow !text-white before:!bg-none before:!bg-white/70">Start a project</p>

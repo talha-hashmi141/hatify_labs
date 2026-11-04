@@ -37,7 +37,7 @@ const EMPTY: ContactInput = {
 const ORDER: ContactField[] = ["name", "email", "company", "service", "budget", "timeline", "message", "consent"];
 
 const inputBase =
-  "block w-full rounded-xl border bg-white px-4 py-3 text-[15px] text-ink placeholder:text-faint transition-[border-color,box-shadow] focus:outline-none focus:ring-4";
+  "block w-full rounded-xl border bg-surface px-4 py-3 text-[15px] text-ink placeholder:text-faint transition-[border-color,box-shadow] focus:outline-none focus:ring-4";
 const ok = "border-line-strong focus:border-royal focus:ring-royal/10";
 const bad = "border-red-500 focus:border-red-500 focus:ring-red-500/10";
 
@@ -67,7 +67,7 @@ function Field({
       </div>
       {children}
       {error ? (
-        <p id={`${id}-error`} className="mt-2 flex items-center gap-1.5 text-sm text-red-600">
+        <p id={`${id}-error`} className="mt-2 flex items-center gap-1.5 text-sm text-red-600 dark:text-red-400">
           <AlertCircle className="size-4 shrink-0" aria-hidden />
           {error}
         </p>
@@ -158,7 +158,7 @@ export default function ContactForm({ linkedin, email }: { linkedin: string | nu
   if (status.kind === "success") {
     return (
       <div ref={statusRef} tabIndex={-1} role="status" className="card flex min-h-[520px] flex-col items-start justify-center p-8 outline-none sm:p-12">
-        <span className="flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-royal to-electric text-white shadow-[var(--shadow-glow)]">
+        <span className="flex size-14 items-center justify-center rounded-2xl bg-brand-fill text-white shadow-[var(--shadow-glow)]">
           <CheckCircle2 className="size-7" aria-hidden />
         </span>
         <h2 className="display mt-7 text-3xl">Thank you. Your message has been sent.</h2>
@@ -178,7 +178,7 @@ export default function ContactForm({ linkedin, email }: { linkedin: string | nu
   return (
     <form ref={formRef} onSubmit={onSubmit} noValidate className="card relative p-6 sm:p-10" aria-describedby="form-note">
       {status.kind === "error" ? (
-        <div ref={statusRef} tabIndex={-1} role="alert" className="mb-8 rounded-xl border border-amber-300 bg-amber-50 p-5 text-sm text-amber-950 outline-none">
+        <div ref={statusRef} tabIndex={-1} role="alert" className="mb-8 rounded-xl border border-amber-300 bg-amber-50 p-5 text-sm text-amber-950 dark:border-amber-500/40 dark:bg-amber-500/10 dark:text-amber-100 outline-none">
           <p className="flex items-center gap-2 font-semibold">
             <AlertCircle className="size-4 shrink-0" aria-hidden />
             {status.code === "not_configured"
@@ -189,7 +189,7 @@ export default function ContactForm({ linkedin, email }: { linkedin: string | nu
                   ? "We couldn’t reach the server."
                   : "Your message could not be sent."}
           </p>
-          <p className="mt-2 leading-relaxed text-amber-900">
+          <p className="mt-2 leading-relaxed text-amber-900 dark:text-amber-200">
             {status.code === "not_configured"
               ? "Your message has not been sent. Please contact us directly instead. Your details are still in the form."
               : status.code === "rate_limited"
@@ -199,12 +199,12 @@ export default function ContactForm({ linkedin, email }: { linkedin: string | nu
           {(linkedin || email) && status.code !== "rate_limited" ? (
             <div className="mt-4 flex flex-wrap gap-2">
               {email ? (
-                <a href={`mailto:${email}`} className="btn !min-h-9 border border-amber-300 bg-white !px-4 !py-1.5 text-amber-950 hover:border-amber-500">
+                <a href={`mailto:${email}`} className="btn !min-h-9 border border-amber-300 bg-surface !px-4 !py-1.5 text-amber-950 hover:border-amber-500 dark:border-amber-500/40 dark:text-amber-100">
                   Email {email}
                 </a>
               ) : null}
               {linkedin ? (
-                <a href={linkedin} target="_blank" rel="noopener noreferrer" className="btn !min-h-9 border border-amber-300 bg-white !px-4 !py-1.5 text-amber-950 hover:border-amber-500">
+                <a href={linkedin} target="_blank" rel="noopener noreferrer" className="btn !min-h-9 border border-amber-300 bg-surface !px-4 !py-1.5 text-amber-950 hover:border-amber-500 dark:border-amber-500/40 dark:text-amber-100">
                   <LinkedInIcon className="size-3.5" />
                   Message us on LinkedIn
                 </a>
@@ -273,7 +273,7 @@ export default function ContactForm({ linkedin, email }: { linkedin: string | nu
           label="Project details"
           error={errors.message}
           hint={
-            <span className={`text-xs tabular-nums ${msgLen > LIMITS.message.max ? "text-red-600" : "text-muted"}`} aria-hidden>
+            <span className={`text-xs tabular-nums ${msgLen > LIMITS.message.max ? "text-red-600 dark:text-red-400" : "text-muted"}`} aria-hidden>
               {msgLen}/{LIMITS.message.max}
             </span>
           }
@@ -307,7 +307,7 @@ export default function ContactForm({ linkedin, email }: { linkedin: string | nu
           <span>I agree that Hatify Labs may use these details to respond to my enquiry.</span>
         </label>
         {errors.consent ? (
-          <p id="consent-error" className="mt-2 flex items-center gap-1.5 text-sm text-red-600">
+          <p id="consent-error" className="mt-2 flex items-center gap-1.5 text-sm text-red-600 dark:text-red-400">
             <AlertCircle className="size-4 shrink-0" aria-hidden />
             {errors.consent}
           </p>

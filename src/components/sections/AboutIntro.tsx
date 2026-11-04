@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Compass, HeartHandshake, Layers } from "lucide-react";
-import { achievements } from "@/lib/data";
 import Reveal from "@/components/ui/Reveal";
-import { MetricGrid } from "@/components/ui/Metric";
 
 const PILLARS = [
   {
@@ -26,7 +24,7 @@ export default function AboutIntro() {
   return (
     <section className="section-y" aria-labelledby="about-title">
       <div className="container-x">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
           <div className="lg:col-span-5">
             <Reveal>
               <p className="eyebrow">About Hatify Labs</p>
@@ -52,20 +50,19 @@ export default function AboutIntro() {
           </div>
 
           <div className="lg:col-span-7">
-            <div className="grid gap-4 sm:grid-cols-3">
+            <ul className="grid gap-4">
               {PILLARS.map((p, i) => (
-                <Reveal key={p.title} delay={0.05 * i} className="card card-hover group p-6">
-                  <span className="flex size-11 items-center justify-center rounded-xl bg-gradient-to-br from-royal to-electric text-white shadow-[var(--shadow-glow)] transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110">
+                <Reveal as="li" key={p.title} delay={0.05 * i} className="card card-hover group flex items-start gap-5 p-6 sm:items-center sm:p-7">
+                  <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-brand-fill text-white shadow-[var(--shadow-glow)] transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110">
                     <p.icon className="size-5" strokeWidth={1.75} aria-hidden />
                   </span>
-                  <h3 className="mt-5 text-lg font-bold">{p.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-body">{p.desc}</p>
+                  <div className="min-w-0">
+                    <h3 className="text-lg font-bold">{p.title}</h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-body sm:text-[15px]">{p.desc}</p>
+                  </div>
                 </Reveal>
               ))}
-            </div>
-            <Reveal delay={0.1} className="mt-4">
-              <MetricGrid metrics={achievements} maxCols={2} />
-            </Reveal>
+            </ul>
           </div>
         </div>
       </div>

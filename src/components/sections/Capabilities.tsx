@@ -34,7 +34,7 @@ export default function Capabilities() {
             <Reveal key={c.title} delay={Math.min(i * 0.04, 0.2)}>
               <div data-spotlight="dark" className="group h-full rounded-[var(--radius-card)] border border-white/10 bg-white/[0.035] p-6 transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.055] sm:p-7">
                 <div className="flex items-center gap-3">
-                  <span className="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-royal to-electric text-white transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110">
+                  <span className="flex size-10 items-center justify-center rounded-xl bg-brand-fill text-white transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110">
                     <Icon name={c.icon} className="size-5" />
                   </span>
                   <h3 className="text-lg font-bold !text-white">{c.title}</h3>

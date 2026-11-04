@@ -38,10 +38,10 @@ export default function BrandConstellation() {
         ))}
       </svg>
 
-      <div className="absolute inset-0 bg-[radial-gradient(closest-side,rgb(238_245_255/0.97)_55%,rgb(238_245_255/0)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(closest-side,var(--veil)_55%,transparent_100%)]" />
 
       <div className="relative flex h-full flex-col items-center justify-center px-8 text-center">
-        <span className="flex size-24 items-center justify-center rounded-3xl border border-line bg-white shadow-[var(--shadow-glow)]">
+        <span className="flex size-24 items-center justify-center rounded-3xl border border-line bg-surface shadow-[var(--shadow-glow)]">
           <LogoMark className="size-14" />
         </span>
         <p className="mt-6 font-serif text-[1.75rem] italic leading-tight text-ink">

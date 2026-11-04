@@ -30,13 +30,13 @@ export function TestimonialCard({ t }: { t: Testimonial }) {
         <PlaceholderBadge>Testimonial</PlaceholderBadge>
       </div>
       <div className="mt-6 flex-1 space-y-2.5" aria-hidden>
-        <div className="h-3 w-full rounded-full bg-navy-900/[0.07]" />
-        <div className="h-3 w-[92%] rounded-full bg-navy-900/[0.07]" />
-        <div className="h-3 w-[70%] rounded-full bg-navy-900/[0.07]" />
+        <div className="h-3 w-full rounded-full bg-ink/[0.07]" />
+        <div className="h-3 w-[92%] rounded-full bg-ink/[0.07]" />
+        <div className="h-3 w-[70%] rounded-full bg-ink/[0.07]" />
       </div>
       <p className="mt-5 text-sm text-muted">Client quote pending written approval.</p>
       <figcaption className="mt-6 flex items-center gap-3 border-t border-dashed border-royal/25 pt-5">
-        <span className="size-10 rounded-full border border-dashed border-royal/35 bg-white" aria-hidden />
+        <span className="size-10 rounded-full border border-dashed border-royal/35 bg-surface" aria-hidden />
         <div className="text-sm">
           <p className="font-semibold text-ink">Name, role</p>
           {project ? (
@@ -58,7 +58,7 @@ export default function Testimonials() {
   if (list.length === 0) return null;
 
   return (
-    <section className="section-y bg-white" aria-labelledby="testimonials-title">
+    <section className="section-y bg-surface" aria-labelledby="testimonials-title">
       <div className="container-x">
         <SectionHeader
           align="center"

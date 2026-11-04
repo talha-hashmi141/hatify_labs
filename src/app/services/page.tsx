@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Capabilities from "@/components/sections/Capabilities";
 import ContactCTA from "@/components/sections/ContactCTA";
-import ProcessTimeline from "@/components/sections/ProcessTimeline";
-import { ServiceCard } from "@/components/sections/ServicesOverview";
+import { ServiceRow } from "@/components/sections/ServicesOverview";
 import PageHero from "@/components/ui/PageHero";
 import Reveal from "@/components/ui/Reveal";
 import ServiceOrbit from "@/components/visuals/ServiceOrbit";
@@ -53,10 +52,10 @@ export default function ServicesPage() {
                   {list.length} {list.length === 1 ? "service" : "services"}
                 </span>
               </div>
-              <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="mt-8 space-y-3">
                 {list.map((s, i) => (
                   <Reveal key={s.slug} delay={i * 0.04}>
-                    <ServiceCard s={s} />
+                    <ServiceRow s={s} index={services.indexOf(s) + 1} />
                   </Reveal>
                 ))}
               </div>
@@ -66,7 +65,6 @@ export default function ServicesPage() {
       </div>
 
       <Capabilities />
-      <ProcessTimeline />
       <ContactCTA />
     </>
   );
