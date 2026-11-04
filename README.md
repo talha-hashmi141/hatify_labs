@@ -44,18 +44,19 @@ The site never shows an unverified claim as fact. Pending content renders as a d
 
 ## Contact form email
 
-The form posts to `POST /api/contact`. The route validates the input on the server with the same rules as the client (`src/lib/contact.ts`), has a honeypot and a per-instance rate limit, and sends email through the [Resend](https://resend.com) HTTP API. It adds no SDK dependency.
+The form posts to `POST /api/contact`. The route validates the input on the server with the same rules as the client (`src/lib/contact.ts`), has a honeypot and a per-instance rate limit, and sends email over SMTP with [Nodemailer](https://nodemailer.com), so any mailbox provider works (Gmail, Outlook/365, Zoho, your host's mail server).
 
 Copy `.env.example` to `.env.local` (and add the same variables in Vercel → Settings → Environment Variables):
 
 ```
-RESEND_API_KEY=...
-CONTACT_TO_EMAIL=team@hatifylabs.com
-CONTACT_FROM_EMAIL="Hatify Labs Website <website@hatifylabs.com>"
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=465
+SMTP_USER=website@hatifylabs.com
+SMTP_PASS=...            # Gmail: an App Password, not the normal password
+CONTACT_TO_EMAIL=team@hatifylabs.com,other@hatifylabs.com
+# CONTACT_FROM_EMAIL="Hatify Labs <hello@hatifylabs.com>"   # optional, defaults to SMTP_USER
 ```
 
-Optional: `CONTACT_AUTOREPLY=true` also sends the visitor a short confirmation email. A failed confirmation is only logged, because the enquiry has already been delivered. Each send carries an `Idempotency-Key`, so if the same enquiry is submitted twice within 24 hours, Resend sends it only once.
+Optional: `CONTACT_AUTOREPLY=true` also sends the visitor a short confirmation email. A failed confirmation is only logged, because the enquiry has already been delivered. SMTP has no built-in duplicate protection, so the route remembers what it has sent: an identical submission within 24 hours, or one still being sent, is not sent again. This memory is per server instance and resets on restart.
 
-**Testing before the domain is verified:** set `CONTACT_FROM_EMAIL="Hatify Labs <onboarding@resend.dev>"`. Resend then delivers only to the email address of the Resend account owner, so set `CONTACT_TO_EMAIL` to that address and keep the auto-reply off.
-
-`CONTACT_FROM_EMAIL` must be on a domain verified in Resend. Until all three are set, the API returns `503 not_configured` and the form tells the visitor plainly that the message was **not** sent, with direct contact options. It never shows a false success.
+`CONTACT_FROM_EMAIL` must be `SMTP_USER` or an alias your provider lets that mailbox send as. Otherwise the provider rejects or rewrites it. The route runs on the Node.js runtime, because Nodemailer can't run on Edge. Until `SMTP_HOST`, `SMTP_USER`, `SMTP_PASS` and `CONTACT_TO_EMAIL` are set, the API returns `503 not_configured` and the form tells the visitor plainly that the message was **not** sent, with direct contact options. It never shows a false success.
