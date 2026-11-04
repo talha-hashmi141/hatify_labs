@@ -28,11 +28,11 @@ export default function FeaturedWork() {
           }
         />
 
-        <div className="mt-14 grid gap-5">
+        <div className="mt-14 grid grid-cols-1 gap-5">
           <Reveal className="min-w-0">
             <ProjectCard project={lead} layout="wide" />
           </Reveal>
-          <div className="grid gap-5 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
             {rest.map((p, i) => (
               <Reveal key={p.slug} delay={i * 0.05} className="min-w-0">
                 <ProjectCard project={p} />

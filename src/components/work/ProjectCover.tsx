@@ -47,7 +47,8 @@ export default function ProjectCover({
       <div aria-hidden className="relative flex h-full items-center justify-center px-5 py-8 sm:px-8">
         <div className="flex w-full max-w-xl items-center">
           {layers.map((layer, i) => (
-            <div key={layer.name} className="flex min-w-0 flex-1 items-center">
+            // Phones show two layers so node labels have room; the third appears from sm up.
+            <div key={layer.name} className={`min-w-0 flex-1 items-center ${i === 2 ? "hidden sm:flex" : "flex"}`}>
               <div className="min-w-0 flex-1">
                 <p className="mb-2 truncate font-mono text-[9px] uppercase tracking-[0.14em] text-royal">{layer.name}</p>
                 <div className="space-y-1.5">
@@ -62,7 +63,7 @@ export default function ProjectCover({
                 </div>
               </div>
               {i < layers.length - 1 ? (
-                <svg className="mx-1.5 h-2 w-5 shrink-0 sm:mx-2.5 sm:w-8" viewBox="0 0 32 8" fill="none">
+                <svg className={`mx-1.5 h-2 w-5 shrink-0 sm:mx-2.5 sm:w-8 ${i === 1 ? "hidden sm:block" : ""}`} viewBox="0 0 32 8" fill="none">
                   <line x1="0" y1="4" x2="26" y2="4" stroke="#087BFF" strokeOpacity="0.55" strokeWidth="1.5" strokeDasharray="3 3" className="animate-flow" />
                   <path d="M26 1l4 3-4 3" stroke="#087BFF" strokeOpacity="0.8" strokeWidth="1.5" fill="none" />
                 </svg>
