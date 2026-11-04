@@ -1,26 +1,26 @@
 [
   {
     "q": "What kind of projects does Hatify Labs take on?",
-    "a": "The complex ones. Multi-tenant SaaS platforms, production LLM and RAG systems, voice agents, government-grade ERPs, regulated data architectures and heavy automation. If your project makes other agencies nervous, it is probably a good fit for us."
+    "a": "Usually the involved ones: multi-tenant SaaS platforms, production LLM and RAG systems, voice agents, public-sector ERPs, regulated data platforms and heavy automation. If a project has made other vendors hesitate, it is probably worth a conversation with us."
   },
   {
     "q": "Do you work with government and regulated industries?",
-    "a": "Yes — we have delivered ERP systems inside government departments and design HIPAA-conscious architectures for healthcare data. We are comfortable with on-premise deployments, strict audit requirements and the paperwork that comes with them."
+    "a": "Yes. We have built ERP systems for the public sector and design HIPAA-conscious architectures for healthcare data. We are comfortable with on-premise deployments, strict audit requirements and the documentation that comes with them."
   },
   {
     "q": "How do you handle data security?",
-    "a": "As a default, not a feature. Encryption at rest and in transit, least-privilege access, tenant isolation up to database-per-tenant, audit trails and secrets management are part of our standard build — because retrofitting security is always more expensive than including it."
+    "a": "From the first sprint. Encryption at rest and in transit, least-privilege access, tenant isolation (up to a database per tenant), audit trails and secrets management are standard in everything we build. Adding security later always costs more than building it in."
   },
   {
     "q": "How do you price projects?",
-    "a": "Three models: fixed-scope builds for well-defined projects, monthly retainers for ongoing product work, and dedicated teams for long-running programs. Every engagement starts with a scoped discovery so the estimate is grounded in reality."
+    "a": "We work in three ways: fixed-scope builds for well-defined projects, monthly retainers for ongoing product work, and dedicated teams for long-running programmes. Each engagement opens with a scoped discovery, so the estimate rests on real information."
   },
   {
     "q": "Can you take over an existing codebase?",
-    "a": "Yes. We start with a technical audit — architecture, security, performance, test coverage — then agree on a stabilization plan before adding features. We inherit systems carefully; we do not rewrite for sport."
+    "a": "Yes. We begin with a technical audit of the architecture, security, performance and test coverage, then agree a stabilisation plan before adding features. We take over systems carefully and only rewrite what genuinely needs it."
   },
   {
     "q": "How fast can we start?",
-    "a": "Discovery can usually begin within a week of first contact. For urgent production issues — outages, security concerns, launch deadlines — we can move faster. Reach out and tell us what is on fire."
+    "a": "Usually soon after a first conversation. The exact date depends on scope and team availability. For urgent production issues such as outages, security concerns or launch deadlines, tell us in your message and we will prioritise the reply."
   }
 ]

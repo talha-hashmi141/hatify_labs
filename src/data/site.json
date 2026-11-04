@@ -1,42 +1,25 @@
 {
   "name": "Hatify Labs",
   "legalName": "Hatify Labs",
-  "tagline": "We engineer intelligent software for serious business.",
-  "description": "Hatify Labs is a full-stack software house building generative AI systems, RAG pipelines, voice agents, multi-tenant SaaS platforms, secure HIPAA-conscious data architectures and cloud infrastructure — trusted across government and enterprise.",
+  "tagline": "Innovation with Integrity. Transformation with Purpose.",
+  "headline": "For millions of users, we build delightful solutions.",
+  "description": "Hatify Labs is a full-stack software and AI engineering studio in Lahore, Pakistan. We design, build and modernise the software organisations depend on, from government ERPs and multi-tenant SaaS platforms to production LLM pipelines and regulated data architectures.",
   "url": "https://hatifylabs.com",
-  "email": "hello@hatifylabs.com",
-  "phone": "+1 (555) 013-4200",
-  "address": "Suite 404, Innovation District — City, Country",
-  "addressNote": "Placeholder — real contact details coming soon",
-  "founded": 2019,
-  "availability": "Available for new projects",
-  "keywords": [
-    "software house",
-    "AI development company",
-    "generative AI development",
-    "RAG pipeline development",
-    "LangChain developers",
-    "LangGraph agents",
-    "hybrid search retrieval",
-    "AI chatbot development",
-    "voice AI agents",
-    "multi-tenant SaaS development",
-    "multi-tenant CRM",
-    "HIPAA compliant software development",
-    "database sharding",
-    "cloud engineering services",
-    "government ERP systems",
-    "WhatsApp automation",
-    "email automation",
-    "Next.js development agency",
-    "UI UX design studio",
-    "data security engineering"
-  ],
+  "location": "Lahore, Punjab, Pakistan",
+  "teamSize": "11–50",
+  "founded": "2019",
+  "content": {
+    "showPlaceholders": false
+  },
+  "contact": {
+    "email": { "label": "Email", "value": null, "href": null, "verified": false },
+    "phone": { "label": "Phone", "value": null, "href": null, "verified": false },
+    "address": { "label": "Office", "value": "Lahore, Punjab, Pakistan", "href": null, "verified": true },
+    "responseTime": "We aim to reply within one business day."
+  },
   "socials": [
-    { "label": "GitHub", "href": "https://github.com/hatifylabs" },
-    { "label": "LinkedIn", "href": "https://www.linkedin.com/company/hatifylabs" },
-    { "label": "X (Twitter)", "href": "https://x.com/hatifylabs" },
-    { "label": "Instagram", "href": "https://instagram.com/hatifylabs" }
+    { "label": "LinkedIn", "href": "https://www.linkedin.com/company/hatify-labs/" },
+    { "label": "GitHub", "href": null }
   ],
   "nav": [
     { "label": "Services", "href": "/services" },
@@ -44,14 +27,28 @@
     { "label": "About", "href": "/about" },
     { "label": "Contact", "href": "/contact" }
   ],
-  "trustBadges": [
-    { "icon": "landmark", "label": "Government-scale ERP systems" },
-    { "icon": "message", "label": "1M+ automated messages / month" },
-    { "icon": "shield", "label": "HIPAA-conscious architectures" }
-  ],
   "nextSteps": [
-    { "step": "01", "title": "Intro call", "desc": "Thirty minutes on your problem, your users and your deadline — no sales choreography." },
-    { "step": "02", "title": "Scoped plan", "desc": "An honest estimate within days — trade-offs, risks and timeline in writing." },
-    { "step": "03", "title": "Kickoff", "desc": "A senior team starts shipping in week one, with a demo at the end of it." }
+    { "step": "01", "title": "Intro call", "desc": "A focused conversation about your problem, your users and your constraints." },
+    { "step": "02", "title": "Scoped proposal", "desc": "A written plan with approach, trade-offs, risks, timeline and team." },
+    { "step": "03", "title": "Kickoff", "desc": "A dedicated team starts with discovery and ships a first demo early." }
+  ],
+  "keywords": [
+    "software house Lahore",
+    "software engineering company Pakistan",
+    "AI development company",
+    "generative AI development",
+    "RAG pipeline development",
+    "LangGraph agents",
+    "AI chatbot development",
+    "voice AI agents",
+    "multi-tenant SaaS development",
+    "HIPAA compliant software development",
+    "database migration",
+    "ETL and analytics",
+    "cloud app development",
+    "government ERP systems",
+    "WhatsApp automation",
+    "web and mobile app development",
+    "UI UX design"
   ]
 }

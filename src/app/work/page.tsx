@@ -1,41 +1,44 @@
 import type { Metadata } from "next";
-import CTA from "@/components/CTA";
-import PageHeader from "@/components/PageHeader";
-import Reveal from "@/components/Reveal";
-import Stats from "@/components/Stats";
-import { ProjectRow } from "@/components/CaseStudies";
+import ContactCTA from "@/components/sections/ContactCTA";
+import Testimonials from "@/components/sections/Testimonials";
+import PageHero from "@/components/ui/PageHero";
+import ProjectCard from "@/components/work/ProjectCard";
+import WorkGrid from "@/components/work/WorkGrid";
+import WorkStack from "@/components/visuals/WorkStack";
 import { projects } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Our Work",
+  title: "Work & Case Studies",
   description:
-    "Selected work by Hatify Labs: government ERP systems, WhatsApp & email automation engines processing millions of messages, HIPAA-grade multi-tenant data platforms and agentic RAG systems.",
+    "Technical case studies from Hatify Labs: a public-sector ERP, an omnichannel WhatsApp and email automation engine, a HIPAA-conscious multi-tenant data platform and an agentic RAG assistant.",
   alternates: { canonical: "/work" },
 };
 
 export default function WorkPage() {
+  const cards = Object.fromEntries(projects.map((p) => [p.slug, <ProjectCard key={p.slug} project={p} headingLevel="h2" />]));
+
   return (
     <>
-      <PageHeader
-        kicker="Work"
-        title="Built where failure is not an option"
-        accent="failure"
-        desc="Government departments, healthcare data, million-message pipelines — a sample of what we have shipped and kept running."
-        image="/images/casestudies-geometric.jpg"
+      <PageHero
+        crumbs={[{ label: "Home", href: "/" }, { label: "Work" }]}
+        eyebrow="Work & case studies"
+        title={
+          <>
+            Engineering we&rsquo;re <span className="accent">proud</span> to put our name on.
+          </>
+        }
+        aside={<WorkStack />}
+        desc="Each case study covers the problem, the architecture we chose and why, the stack, the features we shipped and what changed for the client."
       />
 
-      <section className="section !pt-10">
-        <div className="container-x space-y-4">
-          {projects.map((p, i) => (
-            <Reveal key={p.title} delay={0.05}>
-              <ProjectRow project={p} index={i} showStack darker />
-            </Reveal>
-          ))}
+      <section className="section-y !pt-14">
+        <div className="container-x">
+          <WorkGrid projects={projects.map(({ slug, sector }) => ({ slug, sector }))} cards={cards} />
         </div>
       </section>
 
-      <Stats />
-      <CTA />
+      <Testimonials />
+      <ContactCTA />
     </>
   );
 }

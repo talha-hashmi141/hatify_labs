@@ -1,22 +1,19 @@
 import type { MetadataRoute } from "next";
-import { services, site } from "@/lib/data";
+import { projects, services, site } from "@/lib/data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-
-  const staticRoutes: MetadataRoute.Sitemap = ["", "/services", "/work", "/about", "/contact"].map((path) => ({
+  const entry = (path: string, priority: number): MetadataRoute.Sitemap[number] => ({
     url: `${site.url}${path}`,
     lastModified: now,
     changeFrequency: "monthly",
-    priority: path === "" ? 1 : 0.8,
-  }));
+    priority,
+  });
 
-  const serviceRoutes: MetadataRoute.Sitemap = services.map((s) => ({
-    url: `${site.url}/services/${s.slug}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.7,
-  }));
-
-  return [...staticRoutes, ...serviceRoutes];
+  return [
+    entry("", 1),
+    ...["/services", "/work", "/about", "/contact"].map((p) => entry(p, 0.8)),
+    ...services.map((s) => entry(`/services/${s.slug}`, 0.7)),
+    ...projects.map((p) => entry(`/work/${p.slug}`, 0.7)),
+  ];
 }

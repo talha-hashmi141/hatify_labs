@@ -5,197 +5,550 @@
     "tag": "AI & Intelligence",
     "icon": "sparkles",
     "featured": true,
-    "excerpt": "Production-grade LLM systems with RAG, hybrid search retrieval and agentic reasoning — not demos that die in staging.",
-    "description": "We design and ship LLM systems that survive contact with production: retrieval-augmented generation with hybrid search, structured evals, guardrails and observability from day one. From internal copilots to fully agentic backends orchestrated with LangChain and LangGraph, we treat LLMs as engineering systems — measured, versioned and monitored like any other critical service.",
+    "excerpt": "LLM systems built for production: retrieval-augmented generation, hybrid search and agents that are tested before they ship.",
+    "description": "We design and ship LLM systems that hold up in production: retrieval-augmented generation with hybrid search, structured evaluations, guardrails and observability from the first release. Whether it is an internal copilot or a fully agentic backend built on LangChain and LangGraph, we treat the model like any other critical service. It is measured, versioned and monitored.",
     "features": [
-      { "title": "RAG Pipelines", "desc": "Chunking strategies, embeddings, reranking and citation-grounded answers over your private knowledge." },
-      { "title": "Hybrid Search Retrieval", "desc": "BM25 keyword + dense vector search fused with rerankers for precision that pure vector search cannot reach." },
-      { "title": "Agentic Workflows", "desc": "Multi-step, tool-using agents built on LangGraph with state, retries and human-in-the-loop checkpoints." },
-      { "title": "Evals & Guardrails", "desc": "Regression eval suites, hallucination checks and output validation gating every release." },
-      { "title": "Fine-tuning & Prompt Systems", "desc": "Model selection, fine-tuning and versioned prompt pipelines tuned against real usage data." },
-      { "title": "LLM Observability", "desc": "Tracing, token cost tracking and latency budgets so you always know what the system is doing and spending." }
+      {
+        "title": "RAG Pipelines",
+        "desc": "Chunking strategies, embeddings, reranking and citation-grounded answers over your private knowledge."
+      },
+      {
+        "title": "Hybrid Search Retrieval",
+        "desc": "BM25 keyword + dense vector search fused with rerankers for precision that pure vector search cannot reach."
+      },
+      {
+        "title": "Agentic Workflows",
+        "desc": "Multi-step, tool-using agents built on LangGraph with state, retries and human-in-the-loop checkpoints."
+      },
+      {
+        "title": "Evals & Guardrails",
+        "desc": "Regression eval suites, hallucination checks and output validation gating every release."
+      },
+      {
+        "title": "Fine-tuning & Prompt Systems",
+        "desc": "Model selection, fine-tuning and versioned prompt pipelines tuned against real usage data."
+      },
+      {
+        "title": "LLM Observability",
+        "desc": "Tracing, token cost tracking and latency budgets so you always know what the system is doing and spending."
+      }
     ],
-    "stack": ["OpenAI", "Anthropic Claude", "LangChain", "LangGraph", "Pinecone", "pgvector", "Elasticsearch", "Cohere Rerank"],
-    "keywords": ["generative AI development", "RAG pipeline", "hybrid search retrieval", "LangChain", "LangGraph", "LLM application development"]
+    "stack": [
+      "OpenAI",
+      "Anthropic Claude",
+      "LangChain",
+      "LangGraph",
+      "Pinecone",
+      "pgvector",
+      "Elasticsearch",
+      "Cohere Rerank"
+    ],
+    "keywords": [
+      "generative AI development",
+      "RAG pipeline",
+      "hybrid search retrieval",
+      "LangChain",
+      "LangGraph",
+      "LLM application development"
+    ]
   },
   {
     "slug": "ai-ml-engineering",
     "title": "AI & Machine Learning",
     "tag": "AI & Intelligence",
     "icon": "brain-circuit",
-    "excerpt": "Custom models, MLOps and data pipelines that turn raw data into decisions your business can act on.",
-    "description": "Beyond LLMs, we build classical and deep learning systems end to end — from data strategy and feature pipelines to trained models running behind monitored APIs. Every model ships with an MLOps loop: versioned datasets, reproducible training, drift detection and automated retraining.",
+    "excerpt": "Custom models, MLOps and data pipelines that turn raw operational data into decisions your team can act on.",
+    "description": "Beyond LLMs, we build classical and deep learning systems end to end, from data strategy and feature pipelines to trained models running behind monitored APIs. Every model ships with an MLOps loop: versioned datasets, reproducible training, drift detection and automated retraining.",
     "features": [
-      { "title": "Predictive Modeling", "desc": "Forecasting, scoring and classification models built on your operational data." },
-      { "title": "Computer Vision", "desc": "Detection, OCR and document intelligence pipelines for real-world imagery and paperwork." },
-      { "title": "NLP Systems", "desc": "Classification, extraction and summarization tuned to your domain language." },
-      { "title": "MLOps Pipelines", "desc": "Reproducible training, CI/CD for models, registries and one-click rollback." },
-      { "title": "Drift & Quality Monitoring", "desc": "Live monitoring of data drift and model performance with alerting before accuracy decays." },
-      { "title": "Data Strategy", "desc": "Labeling plans, feature stores and pipelines that make the next model cheaper than the last." }
+      {
+        "title": "Predictive Modeling",
+        "desc": "Forecasting, scoring and classification models built on your operational data."
+      },
+      {
+        "title": "Computer Vision",
+        "desc": "Detection, OCR and document intelligence pipelines for real-world imagery and paperwork."
+      },
+      {
+        "title": "NLP Systems",
+        "desc": "Classification, extraction and summarisation tuned to your domain language."
+      },
+      {
+        "title": "MLOps Pipelines",
+        "desc": "Reproducible training, CI/CD for models, registries and one-click rollback."
+      },
+      {
+        "title": "Drift & Quality Monitoring",
+        "desc": "Live monitoring of data drift and model performance with alerting before accuracy decays."
+      },
+      {
+        "title": "Data Strategy",
+        "desc": "Labeling plans, feature stores and pipelines that make the next model cheaper than the last."
+      }
     ],
-    "stack": ["Python", "PyTorch", "TensorFlow", "scikit-learn", "MLflow", "Airflow", "ONNX"],
-    "keywords": ["machine learning development", "MLOps", "computer vision", "NLP", "predictive analytics"]
+    "stack": [
+      "Python",
+      "PyTorch",
+      "TensorFlow",
+      "scikit-learn",
+      "MLflow",
+      "Airflow",
+      "ONNX"
+    ],
+    "keywords": [
+      "machine learning development",
+      "MLOps",
+      "computer vision",
+      "NLP",
+      "predictive analytics"
+    ]
   },
   {
     "slug": "ai-chatbots",
     "title": "AI Chatbots",
     "tag": "AI & Intelligence",
     "icon": "bot",
-    "excerpt": "Support, sales and internal chatbots on web, WhatsApp and Slack that actually resolve conversations.",
-    "description": "We build knowledge-grounded chatbots that answer from your real documentation and systems — with clean human handoff when it matters. From WhatsApp Business bots serving thousands of customers to internal assistants wired into your tools, every bot ships with analytics so you can see exactly what it resolves.",
+    "excerpt": "Support, sales and internal assistants on web, WhatsApp and Slack that close conversations instead of deflecting them.",
+    "description": "We build chatbots that answer from your real documentation and systems, and hand over to a person cleanly when it matters. From WhatsApp Business bots for customer support to internal assistants wired into your tools, every bot ships with analytics that show exactly what it resolves.",
     "features": [
-      { "title": "WhatsApp Business Bots", "desc": "Official WhatsApp Cloud API bots with templates, sessions and commerce flows." },
-      { "title": "Knowledge-grounded Answers", "desc": "RAG-backed responses with citations — the bot answers from your data, not its imagination." },
-      { "title": "Human Handoff", "desc": "Seamless escalation to live agents with full conversation context carried over." },
-      { "title": "Multilingual Support", "desc": "Serve customers in their language with consistent tone and accuracy." },
-      { "title": "System Integrations", "desc": "Bots that act — create tickets, check orders, book slots — via your CRM and ERP APIs." },
-      { "title": "Conversation Analytics", "desc": "Resolution rates, deflection, CSAT and topic dashboards to prove ROI." }
+      {
+        "title": "WhatsApp Business Bots",
+        "desc": "Official WhatsApp Cloud API bots with templates, sessions and commerce flows."
+      },
+      {
+        "title": "Knowledge-grounded Answers",
+        "desc": "Answers drawn from your own documents, with citations, so the bot never has to improvise."
+      },
+      {
+        "title": "Human Handoff",
+        "desc": "Seamless escalation to live agents with full conversation context carried over."
+      },
+      {
+        "title": "Multilingual Support",
+        "desc": "Serve customers in their language with consistent tone and accuracy."
+      },
+      {
+        "title": "System Integrations",
+        "desc": "Bots that get things done: raising tickets, checking orders and booking slots through your CRM and ERP."
+      },
+      {
+        "title": "Conversation Analytics",
+        "desc": "Resolution rates, deflection, CSAT and topic dashboards to prove ROI."
+      }
     ],
-    "stack": ["WhatsApp Cloud API", "Twilio", "OpenAI", "LangChain", "Node.js", "Redis"],
-    "keywords": ["AI chatbot development", "WhatsApp chatbot", "customer support automation", "RAG chatbot"]
+    "stack": [
+      "WhatsApp Cloud API",
+      "Twilio",
+      "OpenAI",
+      "LangChain",
+      "Node.js",
+      "Redis"
+    ],
+    "keywords": [
+      "AI chatbot development",
+      "WhatsApp chatbot",
+      "customer support automation",
+      "RAG chatbot"
+    ]
   },
   {
     "slug": "voice-agents",
     "title": "Voice AI Agents",
     "tag": "AI & Intelligence",
     "icon": "audio-lines",
-    "excerpt": "Realtime voice agents that answer calls, qualify leads and book appointments — 24/7, in any accent.",
-    "description": "We engineer low-latency voice pipelines — streaming speech-to-text, LLM reasoning and natural text-to-speech — that hold real phone conversations. Inbound reception, outbound qualification, IVR replacement: our agents interrupt gracefully, follow business rules and log every call summary straight into your CRM.",
+    "excerpt": "Voice agents that pick up the phone, qualify leads and book appointments at any hour of the day.",
+    "description": "We engineer low-latency voice pipelines that hold real phone conversations, combining streaming speech-to-text, LLM reasoning and natural text-to-speech. Our agents handle inbound reception, outbound qualification and IVR replacement. They pause when the caller interrupts, follow your business rules and log a summary of every call in your CRM.",
     "features": [
-      { "title": "Inbound Call Handling", "desc": "24/7 reception that answers, triages and routes calls without hold music." },
-      { "title": "Outbound Campaigns", "desc": "Qualification and follow-up calls at scale with compliance-aware scripting." },
-      { "title": "Sub-second Latency", "desc": "Streaming STT → LLM → TTS pipelines tuned for natural conversational rhythm." },
-      { "title": "Barge-in & Interruptions", "desc": "Agents that stop talking when the caller speaks — like a human would." },
-      { "title": "CRM Sync & Summaries", "desc": "Every call transcribed, summarized and written to your CRM automatically." },
-      { "title": "IVR Replacement", "desc": "Replace menu trees with a single agent that understands what callers actually want." }
+      {
+        "title": "Inbound Call Handling",
+        "desc": "24/7 reception that answers, triages and routes calls without hold music."
+      },
+      {
+        "title": "Outbound Campaigns",
+        "desc": "Qualification and follow-up calls at scale with compliance-aware scripting."
+      },
+      {
+        "title": "Sub-second Latency",
+        "desc": "Streaming STT → LLM → TTS pipelines tuned for natural conversational rhythm."
+      },
+      {
+        "title": "Barge-in & Interruptions",
+        "desc": "The agent stops mid-sentence when the caller cuts in, just as a person would."
+      },
+      {
+        "title": "CRM Sync & Summaries",
+        "desc": "Every call transcribed, summarised and written to your CRM automatically."
+      },
+      {
+        "title": "IVR Replacement",
+        "desc": "Replace menu trees with a single agent that understands what callers actually want."
+      }
     ],
-    "stack": ["LiveKit", "Twilio Voice", "Deepgram", "ElevenLabs", "OpenAI Realtime", "WebRTC"],
-    "keywords": ["voice AI agents", "AI phone agent", "conversational AI", "IVR replacement", "realtime voice AI"]
+    "stack": [
+      "LiveKit",
+      "Twilio Voice",
+      "Deepgram",
+      "ElevenLabs",
+      "OpenAI Realtime",
+      "WebRTC"
+    ],
+    "keywords": [
+      "voice AI agents",
+      "AI phone agent",
+      "conversational AI",
+      "IVR replacement",
+      "realtime voice AI"
+    ]
   },
   {
     "slug": "web-development",
-    "title": "Web & Product Engineering",
+    "title": "Web & Mobile App Development",
     "tag": "Engineering",
     "icon": "code",
-    "excerpt": "Fast, SEO-ready web platforms with Next.js — from marketing sites to complex operational dashboards.",
-    "description": "We build web products that feel instant and rank well: server-rendered Next.js frontends, typed APIs, real design systems and performance budgets enforced in CI. Whether it is a marketing site that needs to convert or a dashboard processing millions of rows, the engineering standard is the same.",
+    "excerpt": "Fast, search-friendly web platforms and mobile apps, from marketing sites to the dashboards that run your operations.",
+    "description": "We build web and mobile products that feel instant and rank well: server-rendered Next.js frontends, mobile apps that share APIs and design systems with the web platform, typed backends and performance budgets enforced in CI. Whether it is a marketing site that needs to convert or an operational dashboard processing large datasets, the engineering standard is the same.",
     "features": [
-      { "title": "Next.js & React Frontends", "desc": "Server components, streaming and edge rendering for speed that shows up in Core Web Vitals." },
-      { "title": "API & Backend Engineering", "desc": "Typed Node.js and Python services with clean contracts and versioning." },
-      { "title": "Technical SEO", "desc": "Structured data, sitemaps, metadata and rendering strategy built in from the first commit." },
-      { "title": "Design Systems", "desc": "Token-driven component libraries that keep large products visually consistent." },
-      { "title": "Performance Budgets", "desc": "Bundle analysis, image strategy and CI gates that stop regressions before deploy." },
-      { "title": "Testing & CI/CD", "desc": "Automated test suites and pipelines so shipping on Friday is boring, not brave." }
+      {
+        "title": "Next.js & React Frontends",
+        "desc": "Server components, streaming and edge rendering for speed that shows up in Core Web Vitals."
+      },
+      {
+        "title": "Mobile App Development",
+        "desc": "iOS and Android apps that share APIs, auth and design language with your web platform."
+      },
+      {
+        "title": "API & Backend Engineering",
+        "desc": "Typed Node.js and Python services with clean contracts and versioning."
+      },
+      {
+        "title": "Technical SEO",
+        "desc": "Structured data, sitemaps, metadata and rendering strategy built in from the first commit."
+      },
+      {
+        "title": "Design Systems",
+        "desc": "Token-driven component libraries that keep large products visually consistent."
+      },
+      {
+        "title": "Testing & CI/CD",
+        "desc": "Automated test suites and pipelines so shipping on Friday is boring, not brave."
+      }
     ],
-    "stack": ["Next.js", "React", "TypeScript", "Node.js", "FastAPI", "PostgreSQL", "Tailwind CSS"],
-    "keywords": ["Next.js development", "web development agency", "React developers", "SEO friendly websites", "web application development"]
+    "stack": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Node.js",
+      "FastAPI",
+      "PostgreSQL",
+      "Tailwind CSS"
+    ],
+    "keywords": [
+      "Next.js development",
+      "web development agency",
+      "React developers",
+      "SEO friendly websites",
+      "web application development",
+      "mobile app development"
+    ]
   },
   {
     "slug": "multi-tenant-saas",
     "title": "Multi-tenant CRMs & SaaS",
     "tag": "Engineering",
     "icon": "building",
-    "excerpt": "CRMs and B2B platforms with clean tenant isolation, RBAC, billing and white-labeling done right.",
-    "description": "Multi-tenancy is where most SaaS architectures quietly rot. We design tenant isolation deliberately — shared schema, schema-per-tenant or database-per-tenant — based on your compliance and scale reality, then layer on role-based access, SSO, metering and billing so the platform is sellable from day one.",
+    "excerpt": "CRMs and B2B platforms with clean tenant isolation, role-based access, billing and white-labelling built in.",
+    "description": "Multi-tenancy is where most SaaS architectures quietly rot. We choose the isolation model deliberately (shared schema, schema per tenant or database per tenant) based on your compliance needs and scale, then add role-based access, SSO, metering and billing so the platform is ready to sell from the first release.",
     "features": [
-      { "title": "Tenant Isolation Strategy", "desc": "Shared, schema-per-tenant or DB-per-tenant — chosen for your compliance and cost profile." },
-      { "title": "RBAC & SSO", "desc": "Fine-grained roles, permission matrices and enterprise SSO (SAML/OIDC)." },
-      { "title": "Billing & Metering", "desc": "Usage metering, plans, seats and Stripe-integrated invoicing." },
-      { "title": "White-labeling", "desc": "Per-tenant branding, domains and email identity without forked codebases." },
-      { "title": "Audit Logs", "desc": "Immutable, queryable trails of who did what, when — enterprise buyers ask for this first." },
-      { "title": "Tenant Analytics", "desc": "Per-tenant health, usage and adoption dashboards for your success team." }
+      {
+        "title": "Tenant Isolation Strategy",
+        "desc": "Shared schema, schema per tenant or database per tenant, chosen to fit your compliance and cost profile."
+      },
+      {
+        "title": "RBAC & SSO",
+        "desc": "Fine-grained roles, permission matrices and enterprise SSO (SAML/OIDC)."
+      },
+      {
+        "title": "Billing & Metering",
+        "desc": "Usage metering, plans, seats and Stripe-integrated invoicing."
+      },
+      {
+        "title": "White-labelling",
+        "desc": "Per-tenant branding, domains and email identity without forked codebases."
+      },
+      {
+        "title": "Audit Logs",
+        "desc": "Immutable, searchable records of who did what and when. Enterprise buyers usually ask for this first."
+      },
+      {
+        "title": "Tenant Analytics",
+        "desc": "Per-tenant health, usage and adoption dashboards for your success team."
+      }
     ],
-    "stack": ["PostgreSQL", "Prisma", "Stripe", "Keycloak", "Redis", "Kubernetes"],
-    "keywords": ["multi-tenant SaaS development", "CRM development", "multi-tenant architecture", "B2B SaaS platform"]
+    "stack": [
+      "PostgreSQL",
+      "Prisma",
+      "Stripe",
+      "Keycloak",
+      "Redis",
+      "Kubernetes"
+    ],
+    "keywords": [
+      "multi-tenant SaaS development",
+      "CRM development",
+      "multi-tenant architecture",
+      "B2B SaaS platform"
+    ]
   },
   {
     "slug": "cloud-devops",
-    "title": "Cloud & DevOps",
+    "title": "Cloud Apps & DevOps",
     "tag": "Engineering",
     "icon": "cloud",
-    "excerpt": "Cloud architecture, Kubernetes and infrastructure-as-code that scales without surprise bills.",
-    "description": "We architect, provision and run cloud infrastructure the way it should be: everything in Terraform, deployments through pipelines, observability before incidents, and a cost model someone actually watches. AWS, GCP or Azure — including hybrid and on-premise for government and regulated clients.",
+    "excerpt": "Cloud applications, Kubernetes and infrastructure as code that grow with your traffic and keep the bill predictable.",
+    "description": "We design, provision and run cloud infrastructure properly: everything in Terraform, every deployment through a pipeline, monitoring in place before the first incident, and a cost model someone actually reviews. We work across AWS, GCP and Azure, including hybrid and on-premise setups for government and regulated clients.",
     "features": [
-      { "title": "Cloud Architecture", "desc": "Well-architected AWS/GCP/Azure designs reviewed for security, resilience and cost." },
-      { "title": "Kubernetes & Containers", "desc": "Production-grade clusters with autoscaling, zero-downtime deploys and sane defaults." },
-      { "title": "Infrastructure as Code", "desc": "Terraform-managed environments — reproducible, reviewable, disposable." },
-      { "title": "CI/CD Pipelines", "desc": "From commit to production with tests, scans and approvals in between." },
-      { "title": "Observability & SRE", "desc": "Metrics, logs, traces and alerting tuned to what actually pages a human." },
-      { "title": "Cost Optimization", "desc": "Rightsizing, reservations and architecture changes that cut real spend." }
+      {
+        "title": "Cloud Architecture",
+        "desc": "Well-architected AWS/GCP/Azure designs reviewed for security, resilience and cost."
+      },
+      {
+        "title": "Kubernetes & Containers",
+        "desc": "Production-grade clusters with autoscaling, zero-downtime deploys and sane defaults."
+      },
+      {
+        "title": "Infrastructure as Code",
+        "desc": "Terraform-managed environments you can reproduce, review and tear down at will."
+      },
+      {
+        "title": "CI/CD Pipelines",
+        "desc": "From commit to production with tests, scans and approvals in between."
+      },
+      {
+        "title": "Observability & SRE",
+        "desc": "Metrics, logs, traces and alerting tuned to what actually pages a human."
+      },
+      {
+        "title": "Cost Optimisation",
+        "desc": "Rightsizing, reservations and architecture changes that cut real spend."
+      }
     ],
-    "stack": ["AWS", "GCP", "Azure", "Docker", "Kubernetes", "Terraform", "GitHub Actions", "Grafana"],
-    "keywords": ["cloud engineering", "DevOps services", "Kubernetes consulting", "AWS architecture", "infrastructure as code"]
+    "stack": [
+      "AWS",
+      "GCP",
+      "Azure",
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+      "GitHub Actions",
+      "Grafana"
+    ],
+    "keywords": [
+      "cloud engineering",
+      "DevOps services",
+      "Kubernetes consulting",
+      "AWS architecture",
+      "infrastructure as code",
+      "cloud app development",
+      "application modernization"
+    ]
   },
   {
     "slug": "data-engineering",
-    "title": "Databases & Data Engineering",
+    "title": "Databases, ETL & Migration",
     "tag": "Data & Security",
     "icon": "database",
-    "excerpt": "Sharded, per-tenant and HIPAA-grade data architectures built for scale, audits and sleep at night.",
-    "description": "Data architecture is where we are most opinionated. We design sharding strategies, database-per-tenant provisioning and replication topologies that keep queries fast at scale — and when the data is regulated, we build HIPAA-conscious handling in from the start: encryption at rest and in transit, access controls, audit trails and retention policies that survive a real audit.",
+    "excerpt": "Database design, migration and ETL for systems that have outgrown their first schema, including sharded and HIPAA-conscious setups.",
+    "description": "Data architecture is where we hold the strongest opinions. We design sharding strategies, database-per-tenant provisioning and replication topologies that keep queries fast as volume grows. When the data is regulated, HIPAA-conscious handling is built in from the start: encryption at rest and in transit, access controls, audit trails and retention policies that stand up to a real audit.",
     "features": [
-      { "title": "Database Sharding", "desc": "Horizontal partitioning strategies — hash, range, tenant-key — with rebalancing plans that work." },
-      { "title": "DB-per-tenant Provisioning", "desc": "Automated tenant database lifecycle: create, migrate, back up, restore, retire." },
-      { "title": "HIPAA-conscious Data Handling", "desc": "Field-level encryption, PHI access controls, audit trails and BAAs-ready processes." },
-      { "title": "Replication & Failover", "desc": "Read replicas, hot standbys and tested recovery drills — RPO/RTO you can state out loud." },
-      { "title": "Query & Schema Optimization", "desc": "Indexing, partitioning and query rewrites that turn seconds into milliseconds." },
-      { "title": "ETL & Analytics Pipelines", "desc": "CDC streams and warehouse pipelines feeding dashboards that stay fresh." }
+      {
+        "title": "Database Sharding",
+        "desc": "Hash, range or tenant-key partitioning, with a rebalancing plan that has been tested."
+      },
+      {
+        "title": "DB-per-tenant Provisioning",
+        "desc": "Automated tenant database lifecycle: create, migrate, back up, restore, retire."
+      },
+      {
+        "title": "HIPAA-conscious Data Handling",
+        "desc": "Field-level encryption, PHI access controls, audit trails and BAAs-ready processes."
+      },
+      {
+        "title": "Replication & Failover",
+        "desc": "Read replicas, hot standbys and rehearsed recovery drills, with recovery targets you can commit to."
+      },
+      {
+        "title": "Database Migration & Modernisation",
+        "desc": "Rehearsed migrations off legacy engines and schemas, with data validation, a cut-over plan and a way back."
+      },
+      {
+        "title": "ETL & Analytics Pipelines",
+        "desc": "CDC streams and warehouse pipelines feeding dashboards that stay fresh."
+      }
     ],
-    "stack": ["PostgreSQL", "MongoDB", "MySQL", "Redis", "ClickHouse", "Kafka", "Debezium"],
-    "keywords": ["database sharding", "database per tenant", "HIPAA compliant database", "data engineering services", "database optimization"]
+    "stack": [
+      "PostgreSQL",
+      "MongoDB",
+      "MySQL",
+      "Redis",
+      "ClickHouse",
+      "Kafka",
+      "Debezium"
+    ],
+    "keywords": [
+      "database sharding",
+      "database per tenant",
+      "HIPAA compliant database",
+      "data engineering services",
+      "database optimization",
+      "database migration",
+      "ETL analytics",
+      "data modernization"
+    ]
   },
   {
     "slug": "security-compliance",
     "title": "Security & Compliance",
     "tag": "Data & Security",
     "icon": "shield",
-    "excerpt": "Security engineering and compliance readiness — encryption, hardening, audit trails, HIPAA posture.",
-    "description": "Security at Hatify Labs is a default, not a line item. We harden systems we build and systems we inherit: encryption and key management, authentication done properly, least-privilege access, audit logging and the documentation trail that compliance reviews demand. We have carried these standards into government deployments where the tolerance for mistakes is zero.",
+    "excerpt": "Encryption, hardening, access control and audit trails, plus the evidence a compliance review will ask for.",
+    "description": "Security is part of how we build, from the first sprint. We harden the systems we write and the systems we inherit: encryption and key management, properly implemented authentication, least-privilege access, audit logging and the documentation trail that compliance reviews ask for.",
     "features": [
-      { "title": "Compliance Readiness", "desc": "HIPAA and SOC 2 oriented controls, evidence collection and gap remediation." },
-      { "title": "Encryption & Key Management", "desc": "At-rest and in-transit encryption with rotation and KMS/Vault-backed secrets." },
-      { "title": "Identity & Access", "desc": "OAuth2/OIDC, MFA, least-privilege RBAC and session hardening." },
-      { "title": "Secure SDLC", "desc": "Dependency scanning, code review gates and secrets hygiene wired into CI." },
-      { "title": "Audit Logging", "desc": "Tamper-evident activity trails designed for investigators, not just dashboards." },
-      { "title": "Incident Response Runbooks", "desc": "Documented, rehearsed procedures so a bad day stays a short one." }
+      {
+        "title": "Compliance Readiness",
+        "desc": "HIPAA and SOC 2 oriented controls, evidence collection and gap remediation."
+      },
+      {
+        "title": "Encryption & Key Management",
+        "desc": "At-rest and in-transit encryption with rotation and KMS/Vault-backed secrets."
+      },
+      {
+        "title": "Identity & Access",
+        "desc": "OAuth2/OIDC, MFA, least-privilege RBAC and session hardening."
+      },
+      {
+        "title": "Secure SDLC",
+        "desc": "Dependency scanning, code review gates and secrets hygiene wired into CI."
+      },
+      {
+        "title": "Audit Logging",
+        "desc": "Tamper-evident activity trails designed for investigators, not just dashboards."
+      },
+      {
+        "title": "Incident Response Runbooks",
+        "desc": "Documented, rehearsed procedures so a bad day stays a short one."
+      }
     ],
-    "stack": ["HashiCorp Vault", "AWS KMS", "Cloudflare", "OAuth2 / OIDC", "OWASP ASVS", "Wazuh"],
-    "keywords": ["application security", "HIPAA compliance", "data security engineering", "security hardening", "audit logging"]
+    "stack": [
+      "HashiCorp Vault",
+      "AWS KMS",
+      "Cloudflare",
+      "OAuth2 / OIDC",
+      "OWASP ASVS",
+      "Wazuh"
+    ],
+    "keywords": [
+      "application security",
+      "HIPAA compliance",
+      "data security engineering",
+      "security hardening",
+      "audit logging"
+    ]
   },
   {
     "slug": "automation-workflows",
     "title": "Automation & AI Workflows",
     "tag": "Operations & Design",
     "icon": "workflow",
-    "excerpt": "WhatsApp, email and back-office automation orchestrated with LangGraph — millions of messages, zero manual steps.",
-    "description": "We automate the operational work that eats your team's week: WhatsApp and email journeys, document processing, approvals, CRM and ERP syncs. Deterministic workflows where you need reliability, LangGraph-orchestrated AI agents where you need judgment — with human-in-the-loop checkpoints wherever the stakes demand it.",
+    "excerpt": "WhatsApp, email and back-office automation orchestrated with LangGraph, so routine work stops landing on people's desks.",
+    "description": "We automate the operational work that eats up your team’s week: WhatsApp and email journeys, document processing, approvals, and CRM and ERP syncs. Deterministic workflows handle the steps that must never vary. LangGraph agents handle the steps that need judgement, with a person signing off wherever the stakes call for it.",
     "features": [
-      { "title": "WhatsApp Automation", "desc": "Template governance, session flows and throttled campaigns on the official Cloud API." },
-      { "title": "Email Automation", "desc": "Transactional and journey emails with deliverability monitoring baked in." },
-      { "title": "LangGraph Orchestration", "desc": "Stateful AI agent workflows with retries, branching and human approval gates." },
-      { "title": "Document Processing", "desc": "OCR and LLM extraction turning PDFs and scans into structured, validated records." },
-      { "title": "CRM & ERP Integrations", "desc": "Two-way syncs that keep systems consistent without swivel-chair data entry." },
-      { "title": "Scheduled Jobs & Webhooks", "desc": "Reliable background processing with dead-letter queues and replay." }
+      {
+        "title": "WhatsApp Automation",
+        "desc": "Template governance, session flows and throttled campaigns on the official Cloud API."
+      },
+      {
+        "title": "Email Automation",
+        "desc": "Transactional and journey emails with deliverability monitoring baked in."
+      },
+      {
+        "title": "LangGraph Orchestration",
+        "desc": "Stateful AI agent workflows with retries, branching and human approval gates."
+      },
+      {
+        "title": "Document Processing",
+        "desc": "OCR and LLM extraction turning PDFs and scans into structured, validated records."
+      },
+      {
+        "title": "CRM & ERP Integrations",
+        "desc": "Two-way syncs that keep systems consistent without swivel-chair data entry."
+      },
+      {
+        "title": "Scheduled Jobs & Webhooks",
+        "desc": "Reliable background processing with dead-letter queues and replay."
+      }
     ],
-    "stack": ["LangGraph", "n8n", "Temporal", "WhatsApp Cloud API", "SendGrid", "Celery", "Redis"],
-    "keywords": ["workflow automation", "WhatsApp automation", "email automation", "LangGraph agents", "business process automation"]
+    "stack": [
+      "LangGraph",
+      "n8n",
+      "Temporal",
+      "WhatsApp Cloud API",
+      "SendGrid",
+      "Celery",
+      "Redis"
+    ],
+    "keywords": [
+      "workflow automation",
+      "WhatsApp automation",
+      "email automation",
+      "LangGraph agents",
+      "business process automation"
+    ]
   },
   {
     "slug": "ui-ux-design",
     "title": "UI/UX Design",
     "tag": "Operations & Design",
     "icon": "pen-tool",
-    "excerpt": "Interfaces that feel alive — research, design systems and motion, engineered to convert and scale.",
-    "description": "Design at Hatify Labs sits next to engineering, not upstream of it. We research how your users actually work, design flows that remove steps instead of decorating them, and hand off token-based design systems that developers can build from without guesswork — motion and micro-interaction included.",
+    "excerpt": "Research-led interfaces and design systems that make complex products feel simple to use.",
+    "description": "Our designers work alongside the engineers who will build their designs. We study how your users actually work, design flows that remove steps rather than decorate them, and hand over token-based design systems that developers can build from without guesswork, motion and micro-interactions included.",
     "features": [
-      { "title": "Product Discovery & UX Research", "desc": "Interviews, journey mapping and problem framing before any pixels move." },
-      { "title": "Wireframes to Hi-fi", "desc": "Rapid iteration from flows to polished, testable interfaces." },
-      { "title": "Design Systems & Tokens", "desc": "Reusable component libraries with tokens that map 1:1 to code." },
-      { "title": "Motion Design", "desc": "Purposeful animation — loaders, transitions, scroll narratives — that guides, not distracts." },
-      { "title": "Usability Testing", "desc": "Task-based testing that finds friction before your users do." },
-      { "title": "Dev-ready Handoff", "desc": "Specs, states and edge cases documented so build matches design." }
+      {
+        "title": "Product Discovery & UX Research",
+        "desc": "Interviews, journey mapping and problem framing before any pixels move."
+      },
+      {
+        "title": "Wireframes to Hi-fi",
+        "desc": "Rapid iteration from flows to polished, testable interfaces."
+      },
+      {
+        "title": "Design Systems & Tokens",
+        "desc": "Reusable component libraries with tokens that map 1:1 to code."
+      },
+      {
+        "title": "Motion Design",
+        "desc": "Loaders, transitions and scroll sequences that guide attention to what matters."
+      },
+      {
+        "title": "Usability Testing",
+        "desc": "Task-based testing that finds friction before your users do."
+      },
+      {
+        "title": "Dev-ready Handoff",
+        "desc": "Specs, states and edge cases documented so build matches design."
+      }
     ],
-    "stack": ["Figma", "Framer", "Storybook", "Rive", "Maze"],
-    "keywords": ["UI UX design services", "product design studio", "design systems", "motion design", "usability testing"]
+    "stack": [
+      "Figma",
+      "Framer",
+      "Storybook",
+      "Rive",
+      "Maze"
+    ],
+    "keywords": [
+      "UI UX design services",
+      "product design studio",
+      "design systems",
+      "motion design",
+      "usability testing"
+    ]
   }
 ]

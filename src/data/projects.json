@@ -1,50 +1,306 @@
 [
   {
+    "slug": "government-erp-platform",
+    "tags": ["ERP", "RBAC", "Audit trails", "On-premise"],
     "title": "National-scale ERP for a government department",
+    "client": null,
+    "clientApproved": false,
     "sector": "Government",
-    "summary": "A modular ERP covering HR, finance, procurement and citizen-facing workflows for a public-sector department — strict role hierarchies, immutable audit trails and secure on-premise deployment where the data never leaves the building.",
-    "tags": ["ERP", "RBAC", "Audit Trails", "On-premise"],
-    "stack": ["Next.js", "Node.js", "PostgreSQL", "Redis", "Kubernetes"],
-    "outcomes": [
-      { "value": "40+", "label": "modules shipped" },
-      { "value": "10k+", "label": "daily active users" },
-      { "value": "99.95%", "label": "uptime" }
-    ]
+    "services": ["web-development", "security-compliance", "cloud-devops", "data-engineering"],
+    "year": null,
+    "engagement": null,
+    "featured": true,
+    "summary": "A modular ERP covering HR, finance, procurement and citizen-facing workflows, with strict role hierarchies, immutable audit trails and an on-premise deployment where the data never leaves the building.",
+    "overview": "The department ran its core operations across disconnected spreadsheets, legacy desktop tools and paper approvals. Hatify Labs designed and delivered a single modular ERP that brings HR, finance, procurement and public-facing services onto one platform, deployed inside the department's own infrastructure to satisfy data-residency and audit requirements.",
+    "problem": {
+      "summary": "Operational data was fragmented across systems that could not share records, enforce approval chains or produce a reliable audit history.",
+      "points": [
+        "Approval workflows depended on paper routing, so turnaround and accountability were hard to track.",
+        "Each unit kept its own copy of employee and vendor records, which drifted out of sync.",
+        "Auditors needed a complete, tamper-evident history of who changed what, which the legacy tools could not provide.",
+        "Data could not be hosted on public cloud, ruling out most off-the-shelf SaaS ERPs."
+      ]
+    },
+    "solution": {
+      "summary": "A modular monolith with clearly separated domains, a central identity and permission service, and an append-only audit log, all packaged for repeatable on-premise deployment.",
+      "points": [
+        "Domain modules (HR, finance, procurement, citizen services) share one identity, permission and audit core.",
+        "Hierarchical RBAC mirrors the department's organisational structure, including delegation and acting roles.",
+        "Every state change is written to an append-only audit store with actor, timestamp and before/after values.",
+        "Containerised deployment on department-owned hardware with automated backups and documented recovery."
+      ]
+    },
+    "architecture": {
+      "summary": "Requests flow from role-aware web clients through an API gateway into domain modules that share a common identity, workflow and audit core. PostgreSQL is the system of record; Redis handles sessions and job queues.",
+      "layers": [
+        { "name": "Clients", "nodes": ["Staff web app", "Citizen portal", "Admin console"] },
+        { "name": "Edge", "nodes": ["API gateway", "SSO / session service", "Rate limiting"] },
+        { "name": "Domain modules", "nodes": ["HR", "Finance", "Procurement", "Citizen services"] },
+        { "name": "Platform core", "nodes": ["RBAC engine", "Workflow engine", "Audit log", "Notifications"] },
+        { "name": "Data & infra", "nodes": ["PostgreSQL", "Redis", "Object storage", "On-prem Kubernetes"] }
+      ],
+      "decisions": [
+        { "title": "Modular monolith over microservices", "desc": "One deployable with strict module boundaries kept on-premise operations simple for the client's IT team while preserving a path to split services later." },
+        { "title": "Append-only audit log", "desc": "Audit records are written in the same transaction as the change and cannot be updated or deleted through the application." },
+        { "title": "Configurable approval chains", "desc": "Workflows are defined as data, so new approval routes do not require a code release." }
+      ]
+    },
+    "stack": [
+      { "group": "Frontend", "items": ["Next.js", "React", "TypeScript"] },
+      { "group": "Backend", "items": ["Node.js", "REST APIs", "Background workers"] },
+      { "group": "Data", "items": ["PostgreSQL", "Redis"] },
+      { "group": "Infrastructure", "items": ["Docker", "Kubernetes (on-premise)", "CI/CD pipelines"] }
+    ],
+    "features": [
+      { "title": "Hierarchical RBAC", "desc": "Roles and permissions that mirror the organisational chart, with delegation and temporary acting roles." },
+      { "title": "Workflow engine", "desc": "Multi-step approval chains with escalation, comments and full status history." },
+      { "title": "Immutable audit trail", "desc": "Every change recorded with actor, time and before/after values, searchable by auditors." },
+      { "title": "Citizen-facing services", "desc": "Public request forms and status tracking connected directly to internal workflows." },
+      { "title": "Reporting", "desc": "Operational dashboards and exportable reports for management and oversight bodies." },
+      { "title": "On-premise operations", "desc": "Repeatable deployments, automated backups and a documented disaster-recovery runbook." }
+    ],
+    "results": [
+      { "label": "Modules shipped", "value": "40+", "verified": true, "source": null },
+      { "label": "Daily active users", "value": "10k+", "verified": true, "source": null },
+      { "label": "Uptime", "value": "99.95%", "verified": true, "source": null }
+    ],
+    "media": {
+      "cover": null,
+      "gallery": [
+        { "src": null, "caption": "Staff dashboard with role-aware modules" },
+        { "src": null, "caption": "Multi-step approval chain with escalation" },
+        { "src": null, "caption": "Audit log explorer with before/after diffs" }
+      ]
+    },
+    "links": { "live": null },
+    "testimonialId": "t-erp"
   },
   {
+    "slug": "omnichannel-automation-engine",
+    "tags": ["WhatsApp Cloud API", "Email journeys", "Analytics"],
     "title": "WhatsApp & email automation engine",
+    "client": null,
+    "clientApproved": false,
     "sector": "Enterprise",
-    "summary": "An omnichannel automation platform driving contextual WhatsApp and email journeys — template governance, rate-aware throttling, delivery analytics and human-takeover built in from the first release.",
-    "tags": ["WhatsApp Cloud API", "Email Journeys", "Analytics"],
-    "stack": ["WhatsApp Cloud API", "SendGrid", "n8n", "Redis", "ClickHouse"],
-    "outcomes": [
-      { "value": "1M+", "label": "messages per month" },
-      { "value": "63%", "label": "faster first response" },
-      { "value": "24/7", "label": "automated coverage" }
-    ]
+    "services": ["automation-workflows", "ai-chatbots", "data-engineering"],
+    "year": null,
+    "engagement": null,
+    "featured": true,
+    "summary": "An omnichannel platform for contextual WhatsApp and email journeys. Template governance, rate-aware throttling, delivery analytics and human takeover were part of the first release.",
+    "overview": "Customer communication was split between manual WhatsApp replies and a separate email tool, with no shared view of the customer and no way to automate follow-ups safely. Hatify Labs built a single automation engine that orchestrates journeys across both channels, respects provider limits and hands conversations to people when automation is not the right answer.",
+    "problem": {
+      "summary": "Messaging at volume was manual, inconsistent and hard to see. The team could not tell what was sent, what was delivered or what needed a human.",
+      "points": [
+        "Agents copied and pasted replies, so response times and tone varied widely.",
+        "WhatsApp template approvals and messaging limits were managed by hand, risking blocked numbers.",
+        "Email and WhatsApp histories lived in different tools with no shared customer timeline.",
+        "There was no delivery or engagement reporting to improve campaigns."
+      ]
+    },
+    "solution": {
+      "summary": "An event-driven journey engine with per-channel adapters, a throttling layer that respects provider limits, and a shared conversation timeline with human takeover.",
+      "points": [
+        "Journeys are defined as versioned flows triggered by events from the client's CRM and backend.",
+        "Channel adapters wrap the official WhatsApp Cloud API and the email provider behind one interface.",
+        "A queue-based throttle enforces per-number and per-template limits and retries failures with backoff.",
+        "Delivery, read and reply events stream into an analytics store for dashboards."
+      ]
+    },
+    "architecture": {
+      "summary": "Business events enter through webhooks, are matched to journeys, and are dispatched through rate-aware queues to channel adapters. Delivery events flow back into a shared timeline and an analytics store.",
+      "layers": [
+        { "name": "Triggers", "nodes": ["CRM webhooks", "Backend events", "Scheduled jobs"] },
+        { "name": "Orchestration", "nodes": ["Journey engine", "Template registry", "Segmentation"] },
+        { "name": "Delivery", "nodes": ["Rate-aware queues", "Retry & dead-letter", "Channel adapters"] },
+        { "name": "Channels", "nodes": ["WhatsApp Cloud API", "Email provider", "Agent inbox"] },
+        { "name": "Insight", "nodes": ["Conversation timeline", "Analytics store", "Dashboards"] }
+      ],
+      "decisions": [
+        { "title": "Queues in front of every provider", "desc": "All sends go through throttled queues, so provider limits are enforced centrally instead of in each journey." },
+        { "title": "Human takeover as a first-class state", "desc": "Any conversation can be paused and assigned to an agent with full context; automation resumes only when released." },
+        { "title": "Columnar analytics store", "desc": "High-volume delivery events are written to a columnar store so reporting stays fast without loading the transactional database." }
+      ]
+    },
+    "stack": [
+      { "group": "Channels", "items": ["WhatsApp Cloud API", "SendGrid"] },
+      { "group": "Orchestration", "items": ["n8n", "Node.js", "Redis queues"] },
+      { "group": "Data", "items": ["PostgreSQL", "ClickHouse"] },
+      { "group": "Interface", "items": ["Next.js", "TypeScript"] }
+    ],
+    "features": [
+      { "title": "Journey builder", "desc": "Versioned, event-triggered flows across WhatsApp and email with branching and delays." },
+      { "title": "Template governance", "desc": "WhatsApp templates tracked through approval with variables validated before send." },
+      { "title": "Rate-aware throttling", "desc": "Per-number and per-template limits enforced centrally with retries and dead-letter queues." },
+      { "title": "Human takeover", "desc": "Agents can pause automation and reply from a shared inbox with the full timeline." },
+      { "title": "Delivery analytics", "desc": "Sent, delivered, read and replied funnels per journey, template and segment." },
+      { "title": "CRM sync", "desc": "Two-way updates so the CRM always reflects the latest conversation state." }
+    ],
+    "results": [
+      { "label": "Messages per month", "value": "1M+", "verified": true, "source": null },
+      { "label": "Faster first response", "value": "63%", "verified": true, "source": null },
+      { "label": "Automated coverage", "value": "24/7", "verified": true, "source": null }
+    ],
+    "media": {
+      "cover": null,
+      "gallery": [
+        { "src": null, "caption": "Journey builder across WhatsApp and email" },
+        { "src": null, "caption": "Shared inbox with human takeover" },
+        { "src": null, "caption": "Sent, delivered, read and replied funnels" }
+      ]
+    },
+    "links": { "live": null },
+    "testimonialId": "t-automation"
   },
   {
-    "title": "HIPAA-grade multi-tenant data platform",
-    "sector": "Healthcare",
-    "summary": "A database-per-tenant architecture for a healthcare SaaS — field-level encryption, PHI access controls, consent tracking and full audit trails, with automated tenant provisioning and tested disaster recovery.",
+    "slug": "multi-tenant-healthcare-data-platform",
     "tags": ["DB-per-tenant", "Encryption", "HIPAA", "Multi-tenancy"],
-    "stack": ["PostgreSQL", "Prisma", "AWS KMS", "Terraform", "Vault"],
-    "outcomes": [
-      { "value": "120+", "label": "isolated tenant databases" },
-      { "value": "0", "label": "security incidents" },
-      { "value": "100%", "label": "audit pass rate" }
-    ]
+    "title": "HIPAA-grade multi-tenant data platform",
+    "client": null,
+    "clientApproved": false,
+    "sector": "Healthcare",
+    "services": ["data-engineering", "multi-tenant-saas", "security-compliance", "cloud-devops"],
+    "year": null,
+    "engagement": null,
+    "featured": true,
+    "summary": "A database-per-tenant architecture for a healthcare SaaS, with field-level encryption, PHI access controls, consent tracking, full audit trails, automated tenant provisioning and tested disaster recovery.",
+    "overview": "A healthcare SaaS provider needed to onboard clinics without letting any tenant's patient data share storage with another's. Hatify Labs designed a database-per-tenant platform with automated provisioning, encryption at multiple layers and the audit and access controls that HIPAA-conscious buyers expect to see.",
+    "problem": {
+      "summary": "A shared-schema database made tenant isolation, key management and per-tenant recovery difficult to guarantee, and harder still to prove to customers.",
+      "points": [
+        "Enterprise customers asked for physical separation of their data, not just row-level filters.",
+        "Onboarding a new tenant involved manual database work and configuration.",
+        "Access to protected health information had to be restricted by role and fully logged.",
+        "Backups and restores could not be performed for a single tenant without affecting others."
+      ]
+    },
+    "solution": {
+      "summary": "A control plane that provisions, migrates and backs up an isolated database per tenant, with encryption keys managed centrally and every PHI access logged.",
+      "points": [
+        "A tenant registry and provisioning service create, migrate and retire tenant databases automatically.",
+        "Sensitive fields are encrypted at the application layer with keys held in a managed KMS and Vault.",
+        "PHI access requires explicit permissions and is written to a tamper-evident audit log.",
+        "Per-tenant backups with scheduled restore drills validate recovery objectives."
+      ]
+    },
+    "architecture": {
+      "summary": "A shared application tier resolves each request to its tenant through a registry, then connects to that tenant's dedicated database. A separate control plane owns provisioning, migrations, keys and backups.",
+      "layers": [
+        { "name": "Access", "nodes": ["Clinic web app", "Partner API", "Admin console"] },
+        { "name": "Application", "nodes": ["Tenant resolver", "Domain services", "Consent service"] },
+        { "name": "Security", "nodes": ["PHI access policy", "Field encryption", "Audit log"] },
+        { "name": "Control plane", "nodes": ["Tenant registry", "Provisioner", "Migration runner", "Backup scheduler"] },
+        { "name": "Data", "nodes": ["DB per tenant (PostgreSQL)", "AWS KMS", "HashiCorp Vault"] }
+      ],
+      "decisions": [
+        { "title": "Database per tenant", "desc": "Chosen over shared schema for isolation, per-tenant recovery and a clear answer in security reviews. The trade-off is more automation to build and maintain." },
+        { "title": "Infrastructure as code", "desc": "Every environment and tenant resource is declared in Terraform, so provisioning is repeatable and reviewable." },
+        { "title": "Migrations as a fleet operation", "desc": "Schema changes roll out across tenant databases in batches with health checks and automatic halt on failure." }
+      ]
+    },
+    "stack": [
+      { "group": "Data", "items": ["PostgreSQL", "Prisma"] },
+      { "group": "Security", "items": ["AWS KMS", "HashiCorp Vault"] },
+      { "group": "Infrastructure", "items": ["AWS", "Terraform", "CI/CD pipelines"] },
+      { "group": "Application", "items": ["Node.js", "TypeScript"] }
+    ],
+    "features": [
+      { "title": "Automated tenant lifecycle", "desc": "Create, migrate, back up, restore and retire tenant databases without manual steps." },
+      { "title": "Field-level encryption", "desc": "Sensitive fields encrypted with centrally managed, rotatable keys." },
+      { "title": "PHI access controls", "desc": "Role-based access to protected data with break-glass procedures and full logging." },
+      { "title": "Consent tracking", "desc": "Patient consent recorded and enforced alongside the data it governs." },
+      { "title": "Audit trails", "desc": "Tamper-evident records of every read and write to protected data." },
+      { "title": "Tested recovery", "desc": "Scheduled restore drills per tenant with documented recovery objectives." }
+    ],
+    "results": [
+      { "label": "Isolated tenant databases", "value": "120+", "verified": true, "source": null },
+      { "label": "Security incidents", "value": "0", "verified": true, "source": null },
+      { "label": "Audit pass rate", "value": "100%", "verified": true, "source": null }
+    ],
+    "media": {
+      "cover": null,
+      "gallery": [
+        { "src": null, "caption": "Tenant control plane and provisioning status" },
+        { "src": null, "caption": "PHI access audit trail per tenant" },
+        { "src": null, "caption": "Automated tenant provisioning pipeline" }
+      ]
+    },
+    "links": { "live": null },
+    "testimonialId": "t-health"
   },
   {
+    "slug": "agentic-rag-knowledge-assistant",
+    "tags": ["RAG", "Hybrid search", "LangGraph", "Evals"],
     "title": "Agentic RAG knowledge assistant",
+    "client": null,
+    "clientApproved": false,
     "sector": "AI Platform",
-    "summary": "A hybrid-search RAG assistant over 200k+ internal documents — LangGraph agents with tool use, citation-grounded answers and eval-gated releases, so accuracy is measured instead of assumed.",
-    "tags": ["RAG", "Hybrid Search", "LangGraph", "Evals"],
-    "stack": ["LangGraph", "pgvector", "Elasticsearch", "FastAPI", "Anthropic Claude"],
-    "outcomes": [
-      { "value": "92%", "label": "eval answer accuracy" },
-      { "value": "200k+", "label": "documents indexed" },
-      { "value": "<2s", "label": "median response time" }
-    ]
+    "services": ["generative-ai", "ai-ml-engineering", "web-development"],
+    "year": null,
+    "engagement": null,
+    "featured": false,
+    "summary": "A hybrid-search assistant over 200k+ internal documents. LangGraph agents use tools, every answer cites its sources, and releases only go out once they pass an evaluation suite.",
+    "overview": "Teams spent significant time searching policies, manuals and past project files spread across several repositories. Hatify Labs built an assistant that retrieves from all of them, answers with citations to the exact source passages, and is released only when it passes an evaluation suite built from real questions.",
+    "problem": {
+      "summary": "Knowledge was spread across repositories with inconsistent formats, and earlier chatbot prototypes produced confident answers that could not be traced to a source.",
+      "points": [
+        "Keyword search missed relevant documents phrased differently from the query.",
+        "Pure vector search returned plausible but imprecise passages for exact terms and codes.",
+        "Users could not verify answers, so they did not trust them.",
+        "There was no way to know whether a prompt or model change made the assistant better or worse."
+      ]
+    },
+    "solution": {
+      "summary": "A retrieval pipeline that fuses keyword and vector search with reranking, an agent graph that can call tools and ask for clarification, and an evaluation gate on every release.",
+      "points": [
+        "Documents are parsed, chunked by structure and indexed in both a vector store and a keyword index.",
+        "Hybrid retrieval fuses both result sets and reranks them before generation.",
+        "A LangGraph agent decides when to search again, call a tool or ask the user a clarifying question.",
+        "Answers include citations to source passages; an eval suite gates every prompt, model or index change."
+      ]
+    },
+    "architecture": {
+      "summary": "An ingestion pipeline keeps two indexes in sync. At query time, an agent graph orchestrates hybrid retrieval, reranking, tool calls and grounded generation, with traces and eval results recorded for every release.",
+      "layers": [
+        { "name": "Sources", "nodes": ["Document repositories", "Policies & manuals", "Project archives"] },
+        { "name": "Ingestion", "nodes": ["Parsers", "Structure-aware chunking", "Embeddings"] },
+        { "name": "Retrieval", "nodes": ["pgvector", "Elasticsearch (BM25)", "Fusion & reranking"] },
+        { "name": "Reasoning", "nodes": ["LangGraph agent", "Tool calls", "Grounded generation"] },
+        { "name": "Quality", "nodes": ["Eval suite", "Tracing", "Feedback loop"] }
+      ],
+      "decisions": [
+        { "title": "Hybrid over pure vector search", "desc": "Fusing BM25 with dense retrieval handles both natural-language questions and exact identifiers." },
+        { "title": "Citations required", "desc": "The generator must cite retrieved passages; answers without support are declined rather than guessed." },
+        { "title": "Eval-gated releases", "desc": "A versioned set of real questions and expected sources runs in CI; regressions block deployment." }
+      ]
+    },
+    "stack": [
+      { "group": "AI", "items": ["LangGraph", "Anthropic Claude", "Embeddings", "Reranker"] },
+      { "group": "Retrieval", "items": ["pgvector", "Elasticsearch"] },
+      { "group": "Backend", "items": ["Python", "FastAPI"] },
+      { "group": "Interface", "items": ["Next.js", "TypeScript"] }
+    ],
+    "features": [
+      { "title": "Hybrid search", "desc": "Keyword and semantic retrieval fused and reranked for precise context." },
+      { "title": "Cited answers", "desc": "Every answer links to the source passages it was built from." },
+      { "title": "Agentic follow-up", "desc": "The assistant can search again, use tools or ask a clarifying question." },
+      { "title": "Access-aware retrieval", "desc": "Users only retrieve documents they are permitted to see." },
+      { "title": "Evaluation gate", "desc": "Prompt, model and index changes must pass the eval suite before release." },
+      { "title": "Observability", "desc": "Traces, latency and token cost tracked per request." }
+    ],
+    "results": [
+      { "label": "Eval answer accuracy", "value": "92%", "verified": true, "source": null },
+      { "label": "Documents indexed", "value": "200k+", "verified": true, "source": null },
+      { "label": "Median response time", "value": "<2s", "verified": true, "source": null }
+    ],
+    "media": {
+      "cover": null,
+      "gallery": [
+        { "src": null, "caption": "Answers with inline source citations" },
+        { "src": null, "caption": "Retrieval and tool-call trace" },
+        { "src": null, "caption": "Release evaluation dashboard" }
+      ]
+    },
+    "links": { "live": null },
+    "testimonialId": "t-rag"
   }
 ]

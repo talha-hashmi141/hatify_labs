@@ -1,0 +1,8 @@
+[
+  { "title": "AI & LLM Systems", "icon": "sparkles", "desc": "Retrieval, agents, evaluation and observability for production AI.", "items": ["Anthropic Claude", "OpenAI", "LangChain", "LangGraph", "pgvector", "Pinecone", "Elasticsearch", "PyTorch"] },
+  { "title": "Frontend & Mobile", "icon": "layout", "desc": "Fast, accessible interfaces on the web and on mobile.", "items": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Design systems"] },
+  { "title": "Backend & APIs", "icon": "server", "desc": "Typed services, integrations and background processing.", "items": ["Node.js", "Python", "FastAPI", "GraphQL", "REST", "Temporal", "n8n"] },
+  { "title": "Data & Databases", "icon": "database", "desc": "Modelling, migration, ETL and analytics at scale.", "items": ["PostgreSQL", "MongoDB", "MySQL", "Redis", "ClickHouse", "Kafka", "Prisma"] },
+  { "title": "Cloud & DevOps", "icon": "cloud", "desc": "Infrastructure as code, containers and delivery pipelines.", "items": ["AWS", "GCP", "Azure", "Docker", "Kubernetes", "Terraform", "GitHub Actions"] },
+  { "title": "Security & Compliance", "icon": "shield", "desc": "Identity, encryption, auditing and compliance readiness.", "items": ["OAuth2 / OIDC", "HashiCorp Vault", "AWS KMS", "OWASP ASVS", "Audit logging"] }
+]
