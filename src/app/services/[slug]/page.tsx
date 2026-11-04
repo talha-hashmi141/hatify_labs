@@ -130,7 +130,7 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
                 </Link>
               }
             />
-            <div className={`mt-12 grid gap-5 ${work.length > 1 ? "md:grid-cols-2" : ""}`}>
+            <div className={`mt-12 grid grid-cols-1 gap-5 ${work.length > 1 ? "md:grid-cols-2" : ""}`}>
               {work.slice(0, 2).map((p) => (
                 <ProjectCard key={p.slug} project={p} layout={work.length > 1 ? "stack" : "wide"} />
               ))}

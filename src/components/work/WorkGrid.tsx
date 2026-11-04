@@ -37,9 +37,11 @@ export default function WorkGrid({ projects, cards }: { projects: Pick<Project, 
         {active === "All" ? "" : ` in ${active}`}.
       </p>
 
-      <ul className="mt-10 grid gap-5 md:grid-cols-2">
+      <ul className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2">
         {shown.map((p) => (
-          <li key={p.slug}>{cards[p.slug]}</li>
+          <li key={p.slug} className="min-w-0">
+            {cards[p.slug]}
+          </li>
         ))}
       </ul>
     </div>
