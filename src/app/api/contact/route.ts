@@ -11,6 +11,9 @@ import { normalizeContact, SERVICE_OPTIONS, validateContact, type ContactInput, 
     CONTACT_TO_EMAIL    Inbox(es) that receive enquiries, comma-separated
     CONTACT_FROM_EMAIL  Verified sender, e.g. "Hatify Labs Website <website@hatifylabs.com>"
 
+  Optional:
+    CONTACT_AUTOREPLY   "true" to also send the visitor a short confirmation
+
   When they are missing the route answers 503 { code: "not_configured" } and
   the form tells the visitor plainly — it never pretends a message was sent.
 */
@@ -39,6 +42,55 @@ function json(body: ContactResponse, status: number) {
 const escapeHtml = (s: string) =>
   s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 
+// Strip control characters so user input can never break the subject line.
+const oneLine = (s: string) => s.replace(/[\r\n\t]+/g, " ").trim();
+
+async function sha256(input: string) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(input));
+  return Array.from(new Uint8Array(buf), (b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+interface ResendPayload {
+  from: string;
+  to: string[];
+  subject: string;
+  text: string;
+  html: string;
+  reply_to?: string;
+}
+
+async function sendViaResend(apiKey: string, payload: ResendPayload, idempotencyKey: string) {
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+      // Resend drops repeats of the same key for 24h — stops double submits sending twice.
+      "Idempotency-Key": idempotencyKey,
+    },
+    body: JSON.stringify(payload),
+    signal: AbortSignal.timeout(10_000),
+  });
+  if (!res.ok) throw new Error(`Resend responded ${res.status}: ${await res.text().catch(() => "")}`);
+}
+
+function buildAutoReply(d: ContactInput) {
+  const first = d.name.split(/\s+/)[0];
+  const text = [
+    `Hi ${first},`,
+    "Thanks for getting in touch with Hatify Labs. We've received your enquiry and will reply to this address, usually within one business day.",
+    "For reference, here is what you sent:",
+    d.message,
+    "— The Hatify Labs team",
+  ].join("\n\n");
+  const html = `<div style="font-family:system-ui,sans-serif;font-size:15px;line-height:1.6;color:#1a2233"><p>Hi ${escapeHtml(
+    first
+  )},</p><p>Thanks for getting in touch with Hatify Labs. We've received your enquiry and will reply to this address, usually within one business day.</p><p style="color:#66738f">For reference, here is what you sent:</p><blockquote style="margin:0;padding:12px 16px;border-left:3px solid #d5dbe8;color:#3a4558;white-space:pre-wrap">${escapeHtml(
+    d.message
+  )}</blockquote><p>— The Hatify Labs team</p></div>`;
+  return { subject: "We've received your enquiry — Hatify Labs", text, html };
+}
+
 function buildEmail(d: ContactInput) {
   const serviceLabel = SERVICE_OPTIONS.find((o) => o.value === d.service)?.label ?? d.service;
   const rows: [string, string][] = [
@@ -55,7 +107,7 @@ function buildEmail(d: ContactInput) {
     .join("")}</table><p style="font-family:system-ui,sans-serif;font-size:14px;white-space:pre-wrap">${escapeHtml(
     d.message
   )}</p>`;
-  return { subject: `New enquiry — ${serviceLabel} — ${d.name}`, text, html };
+  return { subject: oneLine(`New enquiry — ${serviceLabel} — ${d.name}`), text, html };
 }
 
 export async function POST(request: Request) {
@@ -90,21 +142,22 @@ export async function POST(request: Request) {
     return json({ ok: false, code: "not_configured" }, 503);
   }
 
-  const email = buildEmail(data);
+  const key = await sha256(JSON.stringify([data.email, data.service, data.message]));
   try {
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
-      body: JSON.stringify({ from, to, reply_to: data.email, ...email }),
-      signal: AbortSignal.timeout(10_000),
-    });
-    if (!res.ok) {
-      console.error("[contact] Resend responded", res.status, await res.text().catch(() => ""));
-      return json({ ok: false, code: "delivery_failed" }, 502);
-    }
+    await sendViaResend(apiKey, { from, to, reply_to: data.email, ...buildEmail(data) }, `enquiry-${key}`);
   } catch (err) {
     console.error("[contact] Delivery error", err);
     return json({ ok: false, code: "delivery_failed" }, 502);
+  }
+
+  // Confirmation to the visitor is best-effort: the enquiry is already delivered,
+  // so a failure here is logged but never reported to the visitor as an error.
+  if (process.env.CONTACT_AUTOREPLY === "true") {
+    try {
+      await sendViaResend(apiKey, { from, to: [data.email], reply_to: to[0], ...buildAutoReply(data) }, `autoreply-${key}`);
+    } catch (err) {
+      console.error("[contact] Auto-reply failed", err);
+    }
   }
 
   return json({ ok: true }, 200);

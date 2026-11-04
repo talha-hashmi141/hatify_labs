@@ -54,4 +54,8 @@ CONTACT_TO_EMAIL=team@hatifylabs.com
 CONTACT_FROM_EMAIL="Hatify Labs Website <website@hatifylabs.com>"
 ```
 
+Optional: `CONTACT_AUTOREPLY=true` also sends the visitor a short confirmation email. A failed confirmation is only logged, because the enquiry has already been delivered. Each send carries an `Idempotency-Key`, so if the same enquiry is submitted twice within 24 hours, Resend sends it only once.
+
+**Testing before the domain is verified:** set `CONTACT_FROM_EMAIL="Hatify Labs <onboarding@resend.dev>"`. Resend then delivers only to the email address of the Resend account owner, so set `CONTACT_TO_EMAIL` to that address and keep the auto-reply off.
+
 `CONTACT_FROM_EMAIL` must be on a domain verified in Resend. Until all three are set, the API returns `503 not_configured` and the form tells the visitor plainly that the message was **not** sent, with direct contact options. It never shows a false success.
