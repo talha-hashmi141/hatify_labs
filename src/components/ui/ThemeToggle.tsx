@@ -1,24 +1,13 @@
 "use client";
 
-import { useLayoutEffect, useSyncExternalStore } from "react";
+import { useSyncExternalStore } from "react";
 import { Moon, Sun } from "lucide-react";
 
-export const THEME_STORAGE_KEY = "hatify-theme";
-
 /**
- * Runs in <head> before first paint (see layout.tsx): applies the saved theme,
- * falling back to the OS preference. Kept tiny and dependency-free on purpose.
+ * The site always opens in light mode (no `.dark` class on <html>).
+ * The toggle switches theme for the current visit only; it is not persisted,
+ * so every fresh load starts light again.
  */
-export const themeInitScript = `(function(){try{var t=localStorage.getItem("${THEME_STORAGE_KEY}");var d=t?t==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.classList.toggle("dark",d)}catch(e){}})()`;
-
-function resolveStoredTheme(): boolean {
-  try {
-    const t = localStorage.getItem(THEME_STORAGE_KEY);
-    return t ? t === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
-  } catch {
-    return false;
-  }
-}
 
 function applyTheme(dark: boolean) {
   const root = document.documentElement;
@@ -43,22 +32,7 @@ const getServerSnapshot = () => false;
 export default function ThemeToggle({ className = "" }: { className?: string }) {
   const isDark = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
-  // React's dev Strict Mode remount resets <html> attributes it owns, dropping
-  // the class set by the inline script. Re-apply before paint (no-op in prod).
-  useLayoutEffect(() => {
-    const dark = resolveStoredTheme();
-    if (document.documentElement.classList.contains("dark") !== dark) applyTheme(dark);
-  }, []);
-
-  const toggle = () => {
-    const next = !document.documentElement.classList.contains("dark");
-    applyTheme(next);
-    try {
-      localStorage.setItem(THEME_STORAGE_KEY, next ? "dark" : "light");
-    } catch {
-      /* storage unavailable: theme still applies for this page view */
-    }
-  };
+  const toggle = () => applyTheme(!document.documentElement.classList.contains("dark"));
 
   return (
     <button
