@@ -4,7 +4,6 @@ import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import SpotlightTracker from "@/components/ui/SpotlightTracker";
 import MotionProvider from "@/components/ui/MotionProvider";
-import { themeInitScript } from "@/components/ui/ThemeToggle";
 import { verifiedSocials, site } from "@/lib/data";
 import "./globals.css";
 
@@ -54,10 +53,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#F8FAFF" },
-    { media: "(prefers-color-scheme: dark)", color: "#050C22" },
-  ],
+  themeColor: "#F8FAFF",
   width: "device-width",
   initialScale: 1,
 };
@@ -83,10 +79,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       className={`${jakarta.variable} ${instrument.variable} ${jetbrains.variable}`}
       suppressHydrationWarning
     >
-      <head>
-        {/* Applies the saved/OS theme before first paint — no light flash. */}
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-      </head>
       <body>
         <MotionProvider>
           <Header />
