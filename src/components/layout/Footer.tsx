@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MapPin } from "lucide-react";
-import { contactEmail, linkedin, services, site } from "@/lib/data";
+import { contactEmail, contactPhone, contactPhoneHref, linkedin, services, site } from "@/lib/data";
 import Logo from "@/components/brand/Logo";
 import { LinkedInIcon } from "@/components/ui/Icon";
 
@@ -71,6 +71,13 @@ export default function Footer() {
                 <li>
                   <a href={`mailto:${contactEmail}`} className="text-sm text-white/70 transition-colors hover:text-white">
                     {contactEmail}
+                  </a>
+                </li>
+              ) : null}
+              {contactPhone && contactPhoneHref ? (
+                <li>
+                  <a href={contactPhoneHref} className="text-sm text-white/70 transition-colors hover:text-white">
+                    {contactPhone}
                   </a>
                 </li>
               ) : null}

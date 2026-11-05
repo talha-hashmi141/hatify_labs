@@ -4,7 +4,7 @@ import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import SpotlightTracker from "@/components/ui/SpotlightTracker";
 import MotionProvider from "@/components/ui/MotionProvider";
-import { verifiedSocials, site } from "@/lib/data";
+import { contactEmail, contactPhone, verifiedSocials, site } from "@/lib/data";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -67,6 +67,8 @@ const organizationLd = {
   logo: `${site.url}/icon.svg`,
   slogan: site.tagline,
   description: site.description,
+  ...(contactEmail ? { email: contactEmail } : {}),
+  ...(contactPhone ? { telephone: "+92-309-2555522" } : {}),
   address: { "@type": "PostalAddress", addressLocality: "Lahore", addressRegion: "Punjab", addressCountry: "PK" },
   sameAs: verifiedSocials.map((s) => s.href),
 };

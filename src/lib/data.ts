@@ -50,6 +50,8 @@ export const verifiedSocials = site.socials.filter((s): s is { label: string; hr
 export const linkedin = verifiedSocials.find((s) => s.label === "LinkedIn")?.href ?? null;
 
 export const contactEmail = site.contact.email.verified ? site.contact.email.value : null;
+export const contactPhone = site.contact.phone.verified ? site.contact.phone.value : null;
+export const contactPhoneHref = contactPhone ? (site.contact.phone.href ?? `tel:${contactPhone.replace(/[^+\d]/g, "")}`) : null;
 
 /* ── Services ───────────────────────────────────────────────────────────── */
 

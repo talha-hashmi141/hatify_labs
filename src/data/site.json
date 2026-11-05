@@ -12,8 +12,8 @@
     "showPlaceholders": false
   },
   "contact": {
-    "email": { "label": "Email", "value": null, "href": null, "verified": false },
-    "phone": { "label": "Phone", "value": null, "href": null, "verified": false },
+    "email": { "label": "Email", "value": "hatifylabs@gmail.com", "href": "mailto:hatifylabs@gmail.com", "verified": true },
+    "phone": { "label": "Phone", "value": "0309 2555522", "href": "tel:+923092555522", "verified": true },
     "address": { "label": "Office", "value": "Lahore, Punjab, Pakistan", "href": null, "verified": true },
     "responseTime": "We aim to reply within one business day."
   },
