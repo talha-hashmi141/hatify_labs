@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Mail, MapPin } from "lucide-react";
 import ContactForm from "@/components/contact/ContactForm";
 import FAQ from "@/components/contact/FAQ";
 import { LinkedInIcon } from "@/components/ui/Icon";
@@ -22,9 +22,6 @@ const faqLd = {
 };
 
 export default function ContactPage() {
-  const { phone } = site.contact;
-  const phoneValue = phone.verified ? phone.value : null;
-
   const channels = [
     {
       icon: Mail,
@@ -35,17 +32,6 @@ export default function ContactPage() {
         </a>
       ) : (
         <PendingText>Email address to be provided</PendingText>
-      ),
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      content: phoneValue ? (
-        <a href={phone.href ?? `tel:${phoneValue.replace(/[^+\d]/g, "")}`} className="link-underline font-semibold text-ink">
-          {phoneValue}
-        </a>
-      ) : (
-        <PendingText>Phone number to be provided</PendingText>
       ),
     },
     {

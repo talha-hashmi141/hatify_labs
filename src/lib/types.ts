@@ -174,7 +174,6 @@ export interface SiteConfig {
   };
   contact: {
     email: ContactChannel;
-    phone: ContactChannel;
     address: ContactChannel;
     responseTime: string;
   };
